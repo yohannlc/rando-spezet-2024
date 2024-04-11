@@ -26,6 +26,9 @@ for (let i of legendItems) {
 legendItems.forEach(function(item, index) {
   item.addEventListener('click', function() {
     resetAllTraces();
+    
+
+
     switch(index) {
       case 0:
         tabStatesCircuits.stateCircuit19[0] = !tabStatesCircuits.stateCircuit19[0];

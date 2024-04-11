@@ -2,6 +2,20 @@
 let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
+// Liste des circuits VTT avec ces coordonnées
+const listeCircuitsVttWithCoords = [
+  { id: "circuit42", coords: coordsCircuitVtt42 },
+  { id: "circuit35", coords: coordsCircuitVtt35 },
+  { id: "circuit26", coords: coordsCircuitVtt26 },
+  { id: "circuit19", coords: coordsCircuitVtt19 }
+];
+
+const listeCircuitsMarcheWithCoords = [
+  { id: "circuit17", coords: coordsCircuitMarche17 },
+  { id: "circuit13", coords: coordsCircuitMarche13 },
+  { id: "circuit8", coords: coordsCircuitMarche8 }
+];
+
 let mapStyle = 'mapbox://styles/mapbox/outdoors-v12';
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
@@ -43,21 +57,15 @@ const descriptions = {
 /* --------------------------------- Circuits --------------------------------- */
 
 // constantes selon le type de carte : couleurs, offset et opacité
-color19_Out = 'rgb(54, 147, 191)';
-color26_Out = 'rgb(196, 94, 189)';
-color35_Out = 'rgb(255, 143, 0)';
-color42_Out = 'rgb(255, 228, 0)';
-color8_Out = 'rgb(0, 166, 147)';
-color13_Out = 'rgb(129, 97, 154)';
-color17_Out = 'rgb(236, 75, 75)';
+const colorsCircuitsOut = {
+  "VTT" : ['rgb(54, 147, 191)', 'rgb(196, 94, 189)', 'rgb(255, 143, 0)', 'rgb(255, 228, 0)'],
+  "Marche" : ['rgb(0, 166, 147)', 'rgb(129, 97, 154)', 'rgb(236, 75, 75)']
+}
 
-color19_Sat = 'rgb(14, 170, 243)';
-color25_Sat = 'rgb(213, 0, 255)';
-color35_Sat = 'rgb(255, 143, 0)';
-color42_Sat = 'rgb(248, 235, 106)';
-color8_Sat = 'rgb(58, 218, 85)';
-color13_Sat = 'rgb(255, 0, 120)';
-color17_Sat = 'rgb(252, 143, 128)';
+const colorsCircuitsSat = {
+  "VTT" : ['rgb(14, 170, 243)', 'rgb(213, 0, 255)', 'rgb(255, 143, 0)', 'rgb(248, 235, 106)'],
+  "Marche" : ['rgb(58, 218, 85)', 'rgb(255, 0, 120)', 'rgb(252, 143, 128)']
+}
 
 lineWitdhCircuit_Out_All = 2.5;
 offset_Out_All = 0.00015;
@@ -93,29 +101,29 @@ if (type == 'all') {
 }
 
 // Décalage des traces
-for (let i = 0; i < coordsCircuit26.length; i++) {
-    coordsCircuit26[i][0] += offset;
-    coordsCircuit26[i][1] += offset;
+for (let i = 0; i < coordsCircuitVtt26.length; i++) {
+    coordsCircuitVtt26[i][0] += offset;
+    coordsCircuitVtt26[i][1] += offset;
   }
-  for (let i = 0; i < coordsCircuit19.length; i++) {
-    coordsCircuit19[i][0] += offset*2;
-    coordsCircuit19[i][1] += offset*2;
+  for (let i = 0; i < coordsCircuitVtt19.length; i++) {
+    coordsCircuitVtt19[i][0] += offset*2;
+    coordsCircuitVtt19[i][1] += offset*2;
   }
-  for (let i = 0; i < coordsCircuit42.length; i++) {
-    coordsCircuit42[i][0] -= offset;
-    coordsCircuit42[i][1] -= offset;
+  for (let i = 0; i < coordsCircuitVtt42.length; i++) {
+    coordsCircuitVtt42[i][0] -= offset;
+    coordsCircuitVtt42[i][1] -= offset;
   }
-  for (let i = 0; i < coordsCircuit17.length; i++) {
-    coordsCircuit17[i][0] += offset*1.5;
-    coordsCircuit17[i][1] += offset*1.5;
+  for (let i = 0; i < coordsCircuitMarche17.length; i++) {
+    coordsCircuitMarche17[i][0] += offset*1.5;
+    coordsCircuitMarche17[i][1] += offset*1.5;
   }
-  for (let i = 0; i < coordsCircuit13.length; i++) {
-    coordsCircuit13[i][0] += offset*2;
-    coordsCircuit13[i][1] += offset*2;
+  for (let i = 0; i < coordsCircuitMarche13.length; i++) {
+    coordsCircuitMarche13[i][0] += offset*2;
+    coordsCircuitMarche13[i][1] += offset*2;
   }
-  for (let i = 0; i < coordsCircuit8.length; i++) {
-    coordsCircuit8[i][0] += offset*2.5;
-    coordsCircuit8[i][1] += offset*2.5;
+  for (let i = 0; i < coordsCircuitMarche8.length; i++) {
+    coordsCircuitMarche8[i][0] += offset*2.5;
+    coordsCircuitMarche8[i][1] += offset*2.5;
   }
 
 
@@ -165,7 +173,7 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 }
 
 /* --------------------------------- Polygons --------------------------------- */
-colorFleche42 = color42_Sat;
-colorFleche35 = color35_Sat;
-colorFleche25 = color25_Sat;
-colorFleche19 = color19_Sat;
+colorFleche42 = colorsCircuitsSat['VTT'][3];
+colorFleche35 = colorsCircuitsSat['VTT'][2];
+colorFleche25 = colorsCircuitsSat['VTT'][1];
+colorFleche19 = colorsCircuitsSat['VTT'][1];

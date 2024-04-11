@@ -22,13 +22,14 @@ function changeLegend() {
         divLegend.classList.add("legend-satellite");
         divParams.classList.add("params-satellite");
 
-        divs[0].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color19_Sat + '; height: 3px;');
-        divs[1].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color26_Sat + '; height: 3px;');
-        divs[2].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color35_Sat + '; height: 3px;');
-        divs[3].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color42_Sat + '; height: 3px;');
-        divs[4].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color8_Sat + '; height: 3px;');
-        divs[5].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color13_Sat + '; height: 3px;');
-        divs[6].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color17_Sat + '; height: 3px;');
+        for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
+        }
+
+        for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
+            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
+        }
+
         divs[7].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Sat + '; height: 3px;');
         divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Sat + '; height: 3px;');
         divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Sat + '; height: 3px;');
@@ -38,13 +39,14 @@ function changeLegend() {
         divLegend.classList.remove("legend-satellite");
         divParams.classList.remove("params-satellite");
 
-        divs[0].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color19_Out + '; height: 3px;');
-        divs[1].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color26_Out + '; height: 3px;');
-        divs[2].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color35_Out + '; height: 3px;');
-        divs[3].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color42_Out + '; height: 3px;');
-        divs[4].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color8_Out + '; height: 3px;');
-        divs[5].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color13_Out + '; height: 3px;');
-        divs[6].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + color17_Out + '; height: 3px;');
+        for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
+        }
+
+        for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
+            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
+        }
+
         divs[7].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Out + '; height: 3px;');
         divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Out + '; height: 3px;');
         divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Out + '; height: 3px;');
@@ -55,13 +57,14 @@ function changeLegend() {
 
 function changeConstants() {
     if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-        color42 = color42_Out;
-        color19 = color19_Out;
-        color26 = color26_Out;
-        color35 = color35_Out;
-        color8 = color8_Out;
-        color13 = color13_Out;
-        color17 = color17_Out;
+        color42 = colorsCircuitsOut['VTT'][0];
+        color19 = colorsCircuitsOut['VTT'][1];
+        color26 = colorsCircuitsOut['VTT'][2];
+        color35 = colorsCircuitsOut['VTT'][3];
+        color8 = colorsCircuitsOut['Marche'][0];
+        color13 = colorsCircuitsOut['Marche'][1];
+        color17 = colorsCircuitsOut['Marche'][2];
+        
         if (type == 'all') {
             lineWitdhCircuit = lineWitdhCircuit_Out_All;
             offset = offset_Out_All;
@@ -77,16 +80,16 @@ function changeConstants() {
 
         colorRavito = colorRavito_Out;
 
-        colorFleche1 = color42_Out;
-        colorFleche2 = color26_Out;
+        colorFleche1 = colorsCircuitsOut['VTT'][0];
+        colorFleche2 = colorsCircuitsOut['VTT'][2];
     } else { // mapbox://styles/mapbox/satellite-streets-v12
-        color42 = color42_Sat;
-        color19 = color19_Sat;
-        color26 = color26_Sat;
-        color35 = color35_Sat;
-        color8 = color8_Sat;
-        color13 = color13_Sat;
-        color17 = color17_Sat;
+        color42 = colorsCircuitsSat['VTT'][0];
+        color19 = colorsCircuitsSat['VTT'][1];
+        color26 = colorsCircuitsSat['VTT'][2];
+        color35 = colorsCircuitsSat['VTT'][3];
+        color8 = colorsCircuitsSat['Marche'][0];
+        color13 = colorsCircuitsSat['Marche'][1];
+        color17 = colorsCircuitsSat['Marche'][2];
 
         if (type == 'all') {
             lineWitdhCircuit = lineWitdhCircuit_Sat_All;
@@ -103,8 +106,8 @@ function changeConstants() {
 
         colorRavito = colorRavito_Sat;
 
-        colorFleche1 = color42_Sat;
-        colorFleche2 = color26_Sat;
+        colorFleche1 = colorsCircuitsSat['VTT'][3];
+        colorFleche2 = colorsCircuitsSat['VTT'][1];
     }
 }
 
