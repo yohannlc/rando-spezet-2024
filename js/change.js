@@ -1,11 +1,12 @@
 // Fonction qui permet de mettre l'opacité de tous les circuits à lineOpacityBackCircuit sauf celui en argument
 function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
     console.log("circuitName: " + circuitName + " circuitState: " + circuitState + " circuitItem: " + circuitItem);
-        stateLine(circuitName, circuitState, circuitItem);
-        for (let i of Object.values(tabStatesCircuits)) {
-            if (i[1] != circuitName) {
-                if (!(type !="all" && (i[1] == "circuit8" || i[1] == "circuit13" || i[1] == "circuit17"))) {
-                    map.setPaintProperty(i[1], 'line-opacity', lineOpacityBackCircuit); // On remet l'opacité de la ligne à la normale
+    stateLine(circuitName, circuitState, circuitItem);
+    
+    for (let i of Object.values(tabStatesCircuits)) {
+        if (i[1] != circuitName) {
+            if (!(type !="all" && (i[1] == "circuit8" || i[1] == "circuit13" || i[1] == "circuit17"))) {
+                map.setPaintProperty(i[1], 'line-opacity', lineOpacityBackCircuit); // On remet l'opacité de la ligne à la normale
             }
         }
     }
@@ -23,44 +24,45 @@ function changeLegend() {
         divParams.classList.add("params-satellite");
 
         for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i] + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
             divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
         }
 
-        divs[7].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Sat + '; height: 3px;');
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Sat + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Sat + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Sat + '; height: 3px;');
+        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Sat + '; height: 3px;');
+        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Sat + '; height: 3px;');
+        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Sat + '; height: 3px;');
+        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Sat + '; height: 3px;');
     } else {
         //enlever la classe "legend-satellite" à la div d'id "legend"
         divLegend.classList.remove("legend-satellite");
         divParams.classList.remove("params-satellite");
 
         for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i] + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
             divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
         }
 
-        divs[7].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Out + '; height: 3px;');
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Out + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Out + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Out + '; height: 3px;');
+        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Out + '; height: 3px;');
+        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Out + '; height: 3px;');
+        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Out + '; height: 3px;');
+        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Out + '; height: 3px;');
     }
     divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorCotes + '; height: 3px;');
 }
 
 function changeConstants() {
     if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-        color42 = colorsCircuitsOut['VTT'][0];
-        color19 = colorsCircuitsOut['VTT'][1];
-        color26 = colorsCircuitsOut['VTT'][2];
-        color35 = colorsCircuitsOut['VTT'][3];
+        color49 = colorsCircuitsOut['VTT'][0];
+        color43 = colorsCircuitsOut['VTT'][1];
+        color37 = colorsCircuitsOut['VTT'][2];
+        color27 = colorsCircuitsOut['VTT'][3];
+        color19 = colorsCircuitsOut['VTT'][4];
         color8 = colorsCircuitsOut['Marche'][0];
         color13 = colorsCircuitsOut['Marche'][1];
         color17 = colorsCircuitsOut['Marche'][2];
@@ -83,10 +85,11 @@ function changeConstants() {
         colorFleche1 = colorsCircuitsOut['VTT'][0];
         colorFleche2 = colorsCircuitsOut['VTT'][2];
     } else { // mapbox://styles/mapbox/satellite-streets-v12
-        color42 = colorsCircuitsSat['VTT'][0];
-        color19 = colorsCircuitsSat['VTT'][1];
-        color26 = colorsCircuitsSat['VTT'][2];
-        color35 = colorsCircuitsSat['VTT'][3];
+        color49 = colorsCircuitsSat['VTT'][0];
+        color43 = colorsCircuitsSat['VTT'][1];
+        color37 = colorsCircuitsSat['VTT'][2];
+        color27 = colorsCircuitsSat['VTT'][3];
+        color19 = colorsCircuitsSat['VTT'][4];
         color8 = colorsCircuitsSat['Marche'][0];
         color13 = colorsCircuitsSat['Marche'][1];
         color17 = colorsCircuitsSat['Marche'][2];

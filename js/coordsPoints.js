@@ -1,16 +1,24 @@
-let ravito1Cudel = [
+let ravitoCudel = [
     -3.682843734443054,
     48.160898532989194
 ];
-let ravito2BallTrap = [
+
+let ravitoCudel2 = [
+    -3.682506977187302,
+    48.161599749377416
+];
+
+let ravitoBallTrap = [
     -3.76203019252074,
     48.155110934494644
 ];
-let ravito3Kerdaffret = [
+
+let ravitoKerdaffret = [
     -3.7496976272579445,
     48.1897297331804
 ];
-let ravitoBisMaguet = [
+
+let ravitoMaguet = [
     -3.650211776504136,
     48.157745594229425
 ];
@@ -22,4 +30,9 @@ let ravitoChapelle = [
 let ravitoValentin = [
     -3.6777927014720717,
     48.17988925507274
+];
+
+let ravitoKerbellec = [
+    -3.7323151275524253,
+    48.1671433536884
 ];

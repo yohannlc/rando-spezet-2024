@@ -2,20 +2,6 @@
 let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
-// Liste des circuits VTT avec ces coordonnées
-const listeCircuitsVttWithCoords = [
-  { id: "circuit42", coords: coordsCircuitVtt42 },
-  { id: "circuit35", coords: coordsCircuitVtt35 },
-  { id: "circuit26", coords: coordsCircuitVtt26 },
-  { id: "circuit19", coords: coordsCircuitVtt19 }
-];
-
-const listeCircuitsMarcheWithCoords = [
-  { id: "circuit17", coords: coordsCircuitMarche17 },
-  { id: "circuit13", coords: coordsCircuitMarche13 },
-  { id: "circuit8", coords: coordsCircuitMarche8 }
-];
-
 let mapStyle = 'mapbox://styles/mapbox/outdoors-v12';
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
@@ -44,10 +30,10 @@ const descriptions = {
   "derriereCudel": "Prendre un sécateur ou un truc assez gros pendant le balisage",
   "avantGaecNormand": "Chemin le long du gazoduc, avant de retourner vers Cudel : faire les côtés, c'est très limite",
   "taquetDuPeintre": "Quand on remonte vers la vierge depuis la route : faire les côtés",
-  "ravito1Cudel": "35 - 10<sup>e</sup> km<br>45 - 18<sup>e</sup> km<br>",
-  "ravito2BallTrap": "25 - 11<sup>e</sup> km<br>35 - 19<sup>e</sup> km<br>45 - 27<sup>e</sup> km<br>",
+  "ravitoKerbellec": "x - x<sup>e</sup> km<br>x - x<sup>e</sup> km<br>",
+  "ravitoBallTrap": "x - x<sup>e</sup> km<br>x - x<sup>e</sup> km<br>x - x<sup>e</sup> km<br>",
   "halageAvantPasserelle": "Fin du halage avant de prendre la nouvelle passerelle pour remonter chez Thierry : faudra faire un coup nous même",
-  "ravito3Kerdaffret": "25 - 20<sup>e</sup> km<br>35 - 28<sup>e</sup> km<br>45 - 36<sup>e</sup> km<br>",
+  "ravitoCudel": "x - x<sup>e</sup> km<br>x - x<sup>e</sup> km<br>x - x<sup>e</sup> km<br>",
   "boisRuisseauCrann": "Arbre à couper",
   "palae": "Faire les côtés aussi",
   "boisPalae": "Bois à nettoyer, souffleur et quelques arbres",
@@ -56,10 +42,25 @@ const descriptions = {
 
 /* --------------------------------- Circuits --------------------------------- */
 
+// Liste des circuits VTT avec ces coordonnées
+const listeCircuitsVttWithCoords = [
+  { id: "circuit49", coords: coordsCircuitVtt49 },
+  { id: "circuit43", coords: coordsCircuitVtt43 },
+  { id: "circuit37", coords: coordsCircuitVtt37 },
+  { id: "circuit27", coords: coordsCircuitVtt27 },
+  { id: "circuit19", coords: coordsCircuitVtt19 }
+];
+
+const listeCircuitsMarcheWithCoords = [
+  { id: "circuit17", coords: coordsCircuitMarche17 },
+  { id: "circuit13", coords: coordsCircuitMarche13 },
+  { id: "circuit8", coords: coordsCircuitMarche8 }
+];
+
 // constantes selon le type de carte : couleurs, offset et opacité
 const colorsCircuitsOut = {
-  "VTT" : ['rgb(54, 147, 191)', 'rgb(196, 94, 189)', 'rgb(255, 143, 0)', 'rgb(255, 228, 0)'],
-  "Marche" : ['rgb(0, 166, 147)', 'rgb(129, 97, 154)', 'rgb(236, 75, 75)']
+  "VTT" : ['rgb(54, 147, 191)', 'rgb(196, 94, 189)', 'rgb(255, 143, 0)', 'rgb(255, 228, 0)', 'rgb(0, 166, 147)'],
+  "Marche" : ['rgb(0, 166, 147)', 'rgb(129, 97, 154)', 'rgb(236, 75, 75)', 'rgb(0, 166, 147)']
 }
 
 const colorsCircuitsSat = {
@@ -70,8 +71,7 @@ const colorsCircuitsSat = {
 lineWitdhCircuit_Out_All = 2.5;
 offset_Out_All = 0.00015;
 lineWitdhCircuit_Out_NotAll = 5;
-offset_Out_NotAll = 0.0002;
-// offset_Out_NotAll = 0.00006;
+offset_Out_NotAll = 0.00008;
 
 
 lineWitdhCircuit_Sat_All = 3;
@@ -101,30 +101,39 @@ if (type == 'all') {
 }
 
 // Décalage des traces
-for (let i = 0; i < coordsCircuitVtt26.length; i++) {
-    coordsCircuitVtt26[i][0] += offset;
-    coordsCircuitVtt26[i][1] += offset;
+signe = 1;
+j = 0;
+for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
+  // Centré au milieu, la trace du milieu de tableau sera au milieu (coordonnées non décalées)
+  // let currentOffset = (offset * i)-offset*(listeCircuitsVttWithCoords.length/2);
+
+  // Le premier au milieu, les autres autour
+  if ((i+1)%2 == 0) {
+    j++;
   }
-  for (let i = 0; i < coordsCircuitVtt19.length; i++) {
-    coordsCircuitVtt19[i][0] += offset*2;
-    coordsCircuitVtt19[i][1] += offset*2;
+  signe = signe * -1;
+  let currentOffset = (offset * j)*signe;
+  
+  for (let j = 0; j < listeCircuitsVttWithCoords[i].coords.length; j++) {
+    listeCircuitsVttWithCoords[i].coords[j][0] += currentOffset;
+    listeCircuitsVttWithCoords[i].coords[j][1] += currentOffset;
   }
-  for (let i = 0; i < coordsCircuitVtt42.length; i++) {
-    coordsCircuitVtt42[i][0] -= offset;
-    coordsCircuitVtt42[i][1] -= offset;
-  }
-  for (let i = 0; i < coordsCircuitMarche17.length; i++) {
-    coordsCircuitMarche17[i][0] += offset*1.5;
-    coordsCircuitMarche17[i][1] += offset*1.5;
-  }
-  for (let i = 0; i < coordsCircuitMarche13.length; i++) {
-    coordsCircuitMarche13[i][0] += offset*2;
-    coordsCircuitMarche13[i][1] += offset*2;
-  }
-  for (let i = 0; i < coordsCircuitMarche8.length; i++) {
-    coordsCircuitMarche8[i][0] += offset*2.5;
-    coordsCircuitMarche8[i][1] += offset*2.5;
-  }
+}
+
+
+
+for (let i = 0; i < coordsCircuitMarche17.length; i++) {
+  coordsCircuitMarche17[i][0] += offset*1.5;
+  coordsCircuitMarche17[i][1] += offset*1.5;
+}
+for (let i = 0; i < coordsCircuitMarche13.length; i++) {
+  coordsCircuitMarche13[i][0] += offset*2;
+  coordsCircuitMarche13[i][1] += offset*2;
+}
+for (let i = 0; i < coordsCircuitMarche8.length; i++) {
+  coordsCircuitMarche8[i][0] += offset*2.5;
+  coordsCircuitMarche8[i][1] += offset*2.5;
+}
 
 
 /* --------------------------------- Portions --------------------------------- */
@@ -161,8 +170,8 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 circleRadius_Out = 10;
 circleRadius_Sat = 15;
 
-colorRavito_Out = "rgb(244, 49, 5)";
-colorRavito_Sat = "rgb(0, 255, 162)";
+colorRavito_Out = "rgb(247, 34, 34)";
+colorRavito_Sat = "rgb(247, 34, 34)";
 
 if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
   colorRavito = colorRavito_Out;
@@ -173,7 +182,7 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 }
 
 /* --------------------------------- Polygons --------------------------------- */
-colorFleche42 = colorsCircuitsSat['VTT'][3];
-colorFleche35 = colorsCircuitsSat['VTT'][2];
+colorFleche19 = colorsCircuitsSat['VTT'][0];
 colorFleche25 = colorsCircuitsSat['VTT'][1];
-colorFleche19 = colorsCircuitsSat['VTT'][1];
+colorFleche35 = colorsCircuitsSat['VTT'][2];
+colorFleche42 = colorsCircuitsSat['VTT'][3];

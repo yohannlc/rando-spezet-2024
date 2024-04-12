@@ -17,9 +17,10 @@ let tabStatesPortions = [
 ]
 
 let tabStatesCircuits = {
-  stateCircuit42: [false, "circuit42"],
-  stateCircuit35: [false, "circuit35"],
-  stateCircuit26: [false, "circuit26"],
+  stateCircuit49: [false, "circuit49"],
+  stateCircuit43: [false, "circuit43"],
+  stateCircuit37: [false, "circuit37"],
+  stateCircuit27: [false, "circuit27"],
   stateCircuit19: [false, "circuit19"],
 
   stateCircuit8: [false, "circuit8"],

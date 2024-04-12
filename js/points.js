@@ -30,10 +30,7 @@ function addPoint(pointName, pointType, pointCoordinates, pointColor) {
 }
 
 function addPoints() {
-  addPoint("ravito1Cudel", "ravito", ravito1Cudel, colorRavito);
-  addPoint("ravito2BallTrap", "ravito", ravito2BallTrap, colorRavito);
-  addPoint("ravito3Kerdaffret", "ravito", ravito3Kerdaffret, colorRavito);
-  addPoint("ravitoBisMaguet", "ravito", ravitoBisMaguet, colorRavito);
-  // addPoint("ravitoChapelle", "ravito", ravitoChapelle, colorRavito);
-  // addPoint("ravitoValentin", "ravito", ravitoValentin, colorRavito);
+  addPoint("ravitoKerbellec", "ravito", ravitoKerbellec, colorRavito);
+  addPoint("ravitoBallTrap", "ravito", ravitoBallTrap, colorRavito);
+  addPoint("ravitoCudel", "ravito", ravitoCudel2, colorRavito);
 }
