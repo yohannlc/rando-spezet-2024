@@ -1,6 +1,6 @@
 // Fonction qui permet de mettre l'opacité de tous les circuits à lineOpacityBackCircuit sauf celui en argument
-function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
-    console.log("circuitName: " + circuitName + " circuitState: " + circuitState + " circuitItem: " + circuitItem);
+function setOnlyOneTrace(circuitName, circuitState, circuitItem) {    
+    resetAllTraces();
     stateLine(circuitName, circuitState, circuitItem);
     
     for (let i of Object.values(tabStatesCircuits)) {
@@ -54,6 +54,70 @@ function changeLegend() {
         divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Out + '; height: 3px;');
     }
     divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorCotes + '; height: 3px;');
+}
+
+function resetAllTraces() {
+    let j = 0;
+    for (let circuit of Object.values(tabStatesCircuits)) {               // Pour chaque circuit
+        if (circuit[0] == true) {                                                 // Si la trace est activée
+            circuit[0] = false;                                           // On remet l'état de la trace à false                              
+            cacherDivTexteId();
+        }
+        if (type =="all" || (circuit[1] != "circuit8" && circuit[1] != "circuit13" && circuit[1] != "circuit17")) {
+            stateLine(circuit[1], circuit[0], items[j]);                  // On remet l'opacité de la ligne à la normale
+        }
+        j++;                                                              // Permet de suivre quel élément du tableau tabStatesCircuits on est en train de traiter
+    }
+}
+
+// Fonction qui change le width de la line et sa légende en argument en bold et met reset le reste 
+function stateLine(name, state, item) {
+    if (state) {
+        map.setPaintProperty(name, 'line-width', lineWitdhCircuit+offsetLineWithCircuit);
+        item.classList.add('bold');
+    } else {
+        map.setPaintProperty(name, 'line-opacity', lineOpacityCircuit);
+        map.setPaintProperty(name, 'line-width', lineWitdhCircuit);
+        item.classList.remove('bold');
+    }
+}
+
+// Gérer l'affichage de la popup de texte
+function afficherDivTexteId(portionName) {
+    // Sépare le mot en lettre et en chiffre
+    const match = portionName.match(/^([a-zA-Z]+)(\d+)?([a-zA-Z\s]*)/);
+    if (!match) {
+      // La chaîne ne correspond pas au format attendu
+      return;
+    }
+    const lettre = match[1];
+    const chiffre = match[2] || "";
+    const texte = match[3] ? match[3].replace(/\d+/g, '').trim() : "";
+    
+    // Met la première lettre de chaque mot en majuscule
+    const lettreMajuscule = lettre.replace(/([a-z])([A-Z])/g, '$1 $2').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    const texteMajuscule = texte.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    
+    // Affiche le texte dans l'élément HTML
+    const textId = document.getElementById("textId");
+    textId.innerHTML = `${lettreMajuscule} ${chiffre} ${texteMajuscule}`;
+    
+    // Affiche la description dans une autre balise HTML
+    const descriptionId = document.getElementById("descriptionId");
+    if (descriptions.hasOwnProperty(portionName)) {
+      descriptionId.innerHTML = descriptions[portionName];
+    } else {
+      descriptionId.innerHTML = "";
+    }
+    
+    // Affiche la div
+    const divTexteId = document.getElementById("divTexteId");
+    divTexteId.classList.add("show");
+}
+
+function cacherDivTexteId() { // Fonction pour cacher
+    divTexteId.classList.remove("show");
+    resetAllTraces();
 }
 
 function changeConstants() {
@@ -111,17 +175,6 @@ function changeConstants() {
 
         colorFleche1 = colorsCircuitsSat['VTT'][3];
         colorFleche2 = colorsCircuitsSat['VTT'][1];
-    }
-}
-
-// Fonction qui change le width de la line et sa légende en argument en bold et met reset le reste 
-function stateLine(name, state, ite) {
-    if (state) {
-        map.setPaintProperty(name, 'line-width', lineWitdhCircuit+5);
-        ite.classList.add('bold');
-    } else {
-        map.setPaintProperty(name, 'line-width', lineWitdhCircuit);
-        ite.classList.remove('bold');
     }
 }
 

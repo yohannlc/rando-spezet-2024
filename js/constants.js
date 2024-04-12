@@ -78,6 +78,7 @@ lineWitdhCircuit_Sat_All = 3;
 offset_Sat_All = 0.0003;
 lineWitdhCircuit_Sat_NotAll = 5;
 offset_Sat_NotAll = 0.00005;
+offsetLineWithCircuit = 2;
 
 lineOpacityCircuit = 1;
 lineOpacityBackCircuit = 0.15;
