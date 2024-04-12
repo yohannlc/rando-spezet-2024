@@ -24,11 +24,11 @@ function changeLegend() {
         divParams.classList.add("params-satellite");
 
         for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i] + '; height: 3px;');
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsSat['VTT'][i] + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
-            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
+            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsSat['Marche'][i] + '; height: 3px;');
         }
 
         divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Sat + '; height: 3px;');
@@ -41,7 +41,7 @@ function changeLegend() {
         divParams.classList.remove("params-satellite");
 
         for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i] + '; height: 3px;');
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {

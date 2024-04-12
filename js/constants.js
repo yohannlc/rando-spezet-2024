@@ -64,7 +64,7 @@ const colorsCircuitsOut = {
 }
 
 const colorsCircuitsSat = {
-  "VTT" : ['rgb(14, 170, 243)', 'rgb(213, 0, 255)', 'rgb(255, 143, 0)', 'rgb(248, 235, 106)'],
+  "VTT" : ['rgb(14, 170, 243)', 'rgb(213, 0, 255)', 'rgb(255, 143, 0)', 'rgb(248, 235, 106)', 'rgb(0, 166, 147)'],
   "Marche" : ['rgb(58, 218, 85)', 'rgb(255, 0, 120)', 'rgb(252, 143, 128)']
 }
 
@@ -73,15 +73,14 @@ offset_Out_All = 0.00015;
 lineWitdhCircuit_Out_NotAll = 5;
 offset_Out_NotAll = 0.00008;
 
-
 lineWitdhCircuit_Sat_All = 3;
 offset_Sat_All = 0.0003;
 lineWitdhCircuit_Sat_NotAll = 5;
 offset_Sat_NotAll = 0.00005;
-offsetLineWithCircuit = 2;
 
 lineOpacityCircuit = 1;
 lineOpacityBackCircuit = 0.15;
+offsetLineWithCircuit = 2;
 
 if (type == 'all') {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
@@ -121,8 +120,6 @@ for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
   }
 }
 
-
-
 for (let i = 0; i < coordsCircuitMarche17.length; i++) {
   coordsCircuitMarche17[i][0] += offset*1.5;
   coordsCircuitMarche17[i][1] += offset*1.5;
@@ -136,8 +133,8 @@ for (let i = 0; i < coordsCircuitMarche8.length; i++) {
   coordsCircuitMarche8[i][1] += offset*2.5;
 }
 
-
 /* --------------------------------- Portions --------------------------------- */
+
 lineWitdhPortions = 15;
 lineWitdhPortionsPoly = 20;
 lineOpacityPortions = 0.6;
@@ -168,6 +165,7 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 }
 
 /* --------------------------------- Points --------------------------------- */
+
 circleRadius_Out = 10;
 circleRadius_Sat = 15;
 
@@ -183,6 +181,7 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 }
 
 /* --------------------------------- Polygons --------------------------------- */
+
 colorFleche19 = colorsCircuitsSat['VTT'][0];
 colorFleche25 = colorsCircuitsSat['VTT'][1];
 colorFleche35 = colorsCircuitsSat['VTT'][2];
