@@ -196,7 +196,9 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 
 /* --------------------------------- Polygons --------------------------------- */
 
-colorFleche19 = colorsCircuitsSat['VTT'][0];
-colorFleche25 = colorsCircuitsSat['VTT'][1];
-colorFleche35 = colorsCircuitsSat['VTT'][2];
-colorFleche42 = colorsCircuitsSat['VTT'][3];
+colorFleche19 = colorsCircuitsOut['VTT'][0];
+colorFleche27 = colorsCircuitsOut['VTT'][1];
+colorFleche37 = colorsCircuitsOut['VTT'][2];
+colorFleche43 = colorsCircuitsOut['VTT'][3];
+colorFleche49 = colorsCircuitsOut['VTT'][4];
+colorFleche = 'rgb(155, 155, 155)';

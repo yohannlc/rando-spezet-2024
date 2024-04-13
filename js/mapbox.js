@@ -52,10 +52,10 @@ function createMap(myMapStyle) {
   map.on('load', () => {
     // addDebalisage();
     addCircuitsVTT();
-    // addPolygons();
+    addPolygonsVTT();
     if (type == "all") {
       addCircuitsMarche();
-      // addPolygonsAll();
+      // addPolygonsMarche();
     }
     addPoints();
     // if (typePo == "vttAvecPo") {addPortions();}
