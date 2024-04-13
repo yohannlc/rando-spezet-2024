@@ -48,7 +48,7 @@ const listeCircuitsVttWithCoords = [
   { id: "circuit43", coords: coordsCircuitVtt43 },
   { id: "circuit37", coords: coordsCircuitVtt37 },
   { id: "circuit27", coords: coordsCircuitVtt27 },
-  { id: "circuit19", coords: coordsCircuitVtt19 }
+  { id: "circuit19", coords: coordsCircuitVtt19 },
 ];
 
 const listeCircuitsMarcheWithCoords = [
@@ -59,13 +59,27 @@ const listeCircuitsMarcheWithCoords = [
 
 // constantes selon le type de carte : couleurs, offset et opacité
 const colorsCircuitsOut = {
-  "VTT" : ['rgb(54, 147, 191)', 'rgb(196, 94, 189)', 'rgb(255, 143, 0)', 'rgb(255, 228, 0)', 'rgb(0, 166, 147)'],
-  "Marche" : ['rgb(0, 166, 147)', 'rgb(129, 97, 154)', 'rgb(236, 75, 75)', 'rgb(0, 166, 147)']
+  "VTT" : ['rgb(30, 196, 233)', 
+          'rgb(0, 166, 147)', 
+          'rgb(255, 228, 0)', 
+          'rgb(255, 143, 0)',
+          'rgb(196, 94, 189)'],
+  "Marche" : ['rgb(0, 166, 147)', 
+              'rgb(129, 97, 154)', 
+              'rgb(236, 75, 75)', 
+              'rgb(0, 166, 147)']
 }
 
 const colorsCircuitsSat = {
-  "VTT" : ['rgb(14, 170, 243)', 'rgb(213, 0, 255)', 'rgb(255, 143, 0)', 'rgb(248, 235, 106)', 'rgb(0, 166, 147)'],
-  "Marche" : ['rgb(58, 218, 85)', 'rgb(255, 0, 120)', 'rgb(252, 143, 128)']
+  "VTT" : ['rgb(14, 170, 243)', 
+          'rgb(213, 0, 255)', 
+          'rgb(255, 143, 0)', 
+          'rgb(248, 235, 106)', 
+          'rgb(0, 166, 147)'],
+
+  "Marche" : ['rgb(58, 218, 85)', 
+              'rgb(255, 0, 120)', 
+              'rgb(252, 143, 128)']
 }
 
 lineWitdhCircuit_Out_All = 2.5;
