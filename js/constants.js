@@ -146,6 +146,7 @@ for (let i = 0; i < coordsCircuitMarche8.length; i++) {
   coordsCircuitMarche8[i][1] += offset*2.5;
 }
 
+
 /* --------------------------------- Portions --------------------------------- */
 
 lineWitdhPortions = 15;

@@ -1,12 +1,12 @@
 function addCircuitsVTT() {
     for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
-        addPortion(listeCircuitsVttWithCoords[i].id, "circuit", listeCircuitsVttWithCoords[i].coords, lineWitdhCircuit, lineOpacityCircuit, colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i]);
+        drawPortion(listeCircuitsVttWithCoords[i].id, "circuit", listeCircuitsVttWithCoords[i].coords, lineWitdhCircuit, lineOpacityCircuit, colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i]);
     }
 }
 
 function addCircuitsMarche() {
     for (let i = 0; i < listeCircuitsMarcheWithCoords.length; i++) {
-        addPortion(listeCircuitsMarcheWithCoords[i].id, "circuit", listeCircuitsMarcheWithCoords[i].coords, lineWitdhCircuit, lineOpacityCircuit, "red");
+        drawPortion(listeCircuitsMarcheWithCoords[i].id, "circuit", listeCircuitsMarcheWithCoords[i].coords, lineWitdhCircuit, lineOpacityCircuit, "red");
     }
 
     //display la div d'id =legendCircuitsMarche
