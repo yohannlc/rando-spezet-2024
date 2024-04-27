@@ -88,11 +88,11 @@ function changeMapStyle() {
     var currentZoom = map.getZoom();
     // changer la lineWidth des portions en fonction du zoom
     if (currentZoom < 13) {
-      changeLineWidthCircuit(lineWidthCircuit);
+      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.SmallZoom);
     } else if (currentZoom >= 13 && currentZoom < 14  ) {
-      changeLineWidthCircuit(lineWidthCircuit * 0.8);
+      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.MediumZoom);
     } else {
-      changeLineWidthCircuit(lineWidthCircuit * 0.6);
+      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.LargeZoom);
     }
   });
 
@@ -109,7 +109,6 @@ if (smartphone != true) {
     circuitsClick(tabStatesPortions[i], map);
   }
 }
-
 
 /*
   // Attente de changement de la valeur currentZoom = map.getZoom();

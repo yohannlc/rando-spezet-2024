@@ -133,10 +133,10 @@ function changeConstants() {
         
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Out;
-            offset = offsets.All_Out;
+            offset = offsetsCircuits.All_Out;
         } else {
             lineWidthCircuit = lineWidthsCircuit.NotAll_Out;
-            offset = offsets.NotAll_Out;
+            offset = offsetsCircuits.NotAll_Out;
         }
 
         colorDebrou = colorsPortions.Debrou_Out;
@@ -160,10 +160,10 @@ function changeConstants() {
 
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Sat;
-            offset = offsets.All_Sat;
+            offset = offsetsCircuits.All_Sat;
         } else {
             lineWidthCircuit = lineWidthsCircuit.NotAll_Sat;
-            offset = offsets.NotAll_Sat;
+            offset = offsetsCircuits.NotAll_Sat;
         }
 
         colorDebrou = colorsPortions.Debrou_Sat;

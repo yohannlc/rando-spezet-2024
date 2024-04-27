@@ -62,14 +62,20 @@ const lineWidthsCircuit = {
   All_Out: 2.5,
   All_Sat: 3,
   NotAll_Out: 5,
-  NotAll_Sat: 5
+  NotAll_Sat: 4
 };
 
-const offsets = {
+const lineWidthsCircuitByZoom = {
+  SmallZoom: 1,
+  MediumZoom: 0.8,
+  LargeZoom: 0.7
+}
+
+const offsetsCircuits = {
   All_Out: 0.00015,
   All_Sat: 0.0003,
-  NotAll_Out: 0.00008,
-  NotAll_Sat: 0.00005
+  NotAll_Out: 0.00005,
+  NotAll_Sat: 0.00004
 };
 
 lineOpacityCircuit = 1;
@@ -79,18 +85,18 @@ offsetLineWithCircuit = 2;
 if (type == 'all') {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
     lineWidthCircuit = lineWidthsCircuit.All_Out;
-    offset = offsets.All_Out;
+    offset = offsetsCircuits.All_Out;
   } else {
     lineWidthCircuit = lineWidthsCircuit.All_Sat;
-    offset = offsets.All_Sat;
+    offset = offsetsCircuits.All_Sat;
   }
 } else {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
     lineWidthCircuit = lineWidthsCircuit.NotAll_Out;
-    offset = offsets.NotAll_Out;
+    offset = offsetsCircuits.NotAll_Out;
   } else {
     lineWidthCircuit = lineWidthsCircuit.NotAll_Sat;
-    offset = offsets.NotAll_Sat;
+    offset = offsetsCircuits.NotAll_Sat;
   }
 }
 
@@ -99,14 +105,14 @@ signe = 1;
 j = 0;
 for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
   // Centré au milieu, la trace du milieu de tableau sera au milieu (coordonnées non décalées)
-  // let currentOffset = (offset * i)-offset*(listeCircuitsVttWithCoords.length/2);
+  let currentOffset = (offset * i)-offset*(listeCircuitsVttWithCoords.length/2);
 
-  // Le premier au milieu, les autres autour
-  if ((i+1)%2 == 0) {
-    j++;
-  }
-  signe = signe * -1;
-  let currentOffset = (offset * j)*signe;
+  // // Le premier au milieu, les autres autour
+  // if ((i+1)%2 == 0) {
+  //   j++;
+  // }
+  // signe = signe * -1;
+  // let currentOffset = (offset * j)*signe;
   
   for (let j = 0; j < listeCircuitsVttWithCoords[i].coords.length; j++) {
     listeCircuitsVttWithCoords[i].coords[j][0] += currentOffset;
@@ -192,14 +198,17 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 
 /* --------------------------------- Flèches --------------------------------- */
 
-distanceBetweenFleches = 0.6;
+const distanceBetweenFleches = 0.6;
+const longueurFleche = 0.001;
+const angleFleche = 140;
+const lineWidthFleche = 4;
 
 const listeChoosenFleches = [
-  { id: "circuit49", points: [70, 100, 200, 400] },
-  { id: "circuit43", points: [55, 100, 200, 400] },
-  { id: "circuit37", points: [45, 100, 200, 400] },
-  { id: "circuit27", points: [38, 100, 200, 400] },
-  { id: "circuit19", points: [35, 100, 200, 400] },
+  { id: "circuit49", points: [83,, 200, 400] },
+  { id: "circuit43", points: [80, 200, 400] },
+  { id: "circuit37", points: [77, 200, 400] },
+  { id: "circuit27", points: [75, 200, 400] },
+  { id: "circuit19", points: [25, 98, 220, 418] },
 ]
 
 /* --------------------------------- Polygons --------------------------------- */

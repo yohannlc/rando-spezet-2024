@@ -1,4 +1,24 @@
-// Ajouter des flèches le long des circuits
+function getAngleFleche(current_coords, next_coords) {
+    let angle = 0;
+    if (current_coords[0] < next_coords[0] && current_coords[1] < next_coords[1]) {
+        angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
+    } else if (current_coords[0] < next_coords[0] && current_coords[1] > next_coords[1]) {
+        angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
+    } else if (current_coords[0] > next_coords[0] && current_coords[1] < next_coords[1]) {
+        angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
+    } else if (current_coords[0] > next_coords[0] && current_coords[1] > next_coords[1]) {
+        angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
+    } else if (current_coords[0] == next_coords[0] && current_coords[1] < next_coords[1]) {
+        angle = 90;
+    } else if (current_coords[0] == next_coords[0] && current_coords[1] > next_coords[1]) {
+        angle = 270;
+    } else if (current_coords[0] < next_coords[0] && current_coords[1] == next_coords[1]) {
+        angle = 0;
+    } else if (current_coords[0] > next_coords[0] && current_coords[1] == next_coords[1]) {
+        angle = 180;
+    }
+    return angle;
+}
 
 function getFlechesByEuclidienneDistance(listeCircuitsVttWithCoords, distanceBetweenFleches) {
     let listeFlechesCircuitsVtt = [] // [[x, y, angle], ...]
@@ -18,26 +38,7 @@ function getFlechesByEuclidienneDistance(listeCircuitsVttWithCoords, distanceBet
 
                 next_coords = listeCircuitsVttWithCoords[i].coords[j + 1];
 
-                let angle = 0;
-        
-                // Selon les coordonnées des deux points, on calcul l'angle de la flèche
-                if (current_coords[0] < next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
-                } else if (current_coords[0] < next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
-                } else if (current_coords[0] == next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = 90;
-                } else if (current_coords[0] == next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = 270;
-                } else if (current_coords[0] < next_coords[0] && current_coords[1] == next_coords[1]) {
-                    angle = 0;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] == next_coords[1]) {
-                    angle = 180;
-                }
+                let angle = getAngleFleche(current_coords, next_coords);
 
                 middleCoords = [(current_coords[0] + next_coords[0]) / 2, (current_coords[1] + next_coords[1]) / 2];
                 
@@ -60,8 +61,8 @@ function getFlechesChoosingCoords(listeCircuitsVttWithCoords, listeChoosenFleche
 
     for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
 
-        // On parcourt les coordonnées du circuit sauf les 50 dernières
-        for (let j = 0; j < listeCircuitsVttWithCoords[i].coords.length - 50; j++) {
+        // On parcourt les coordonnées du circuit sauf les 20 dernières
+        for (let j = 0; j < listeCircuitsVttWithCoords[i].coords.length - 20; j++) {
             current_coords = listeCircuitsVttWithCoords[i].coords[j];
 
             // Si c'est un point choisi, on ajoute une flèche
@@ -69,26 +70,7 @@ function getFlechesChoosingCoords(listeCircuitsVttWithCoords, listeChoosenFleche
 
                 next_coords = listeCircuitsVttWithCoords[i].coords[j + 1];
 
-                let angle = 0;
-        
-                // Selon les coordonnées des deux points, on calcul l'angle de la flèche
-                if (current_coords[0] < next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
-                } else if (current_coords[0] < next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = Math.atan((next_coords[1] - current_coords[1]) / (next_coords[0] - current_coords[0])) * 180 / Math.PI + 180;
-                } else if (current_coords[0] == next_coords[0] && current_coords[1] < next_coords[1]) {
-                    angle = 90;
-                } else if (current_coords[0] == next_coords[0] && current_coords[1] > next_coords[1]) {
-                    angle = 270;
-                } else if (current_coords[0] < next_coords[0] && current_coords[1] == next_coords[1]) {
-                    angle = 0;
-                } else if (current_coords[0] > next_coords[0] && current_coords[1] == next_coords[1]) {
-                    angle = 180;
-                }
+                let angle = getAngleFleche(current_coords, next_coords);
 
                 middleCoords = [(current_coords[0] + next_coords[0]) / 2, (current_coords[1] + next_coords[1]) / 2];
                 
@@ -110,18 +92,15 @@ function calculateFlecheCoords(listeFlechesCircuitsVtt) {
         let y = listeFlechesCircuitsVtt[i][1];
         let angle = listeFlechesCircuitsVtt[i][2];
 
-        // Longueur de la flèche
-        let arrowLength = 0.0008;
-
         // Calcul des coordonnées des points de départ et d'arrivée des flèches
-        let xf1 = x + arrowLength * Math.cos((angle + 135) * Math.PI / 180);
-        let yf1 = y + arrowLength * Math.sin((angle + 135) * Math.PI / 180);
+        let xf1 = x + longueurFleche * Math.cos((angle + angleFleche) * Math.PI / 180);
+        let yf1 = y + longueurFleche * Math.sin((angle + angleFleche) * Math.PI / 180);
 
         let xf2 = x;
         let yf2 = y;
 
-        let xf3 = x + arrowLength * Math.cos((angle - 135) * Math.PI / 180);
-        let yf3 = y + arrowLength * Math.sin((angle - 135) * Math.PI / 180);
+        let xf3 = x + longueurFleche * Math.cos((angle - angleFleche) * Math.PI / 180);
+        let yf3 = y + longueurFleche * Math.sin((angle - angleFleche) * Math.PI / 180);
 
         circuitName = listeFlechesCircuitsVtt[i][3];
         listeFlechesCircuitsVttWithCoords.push([xf1, yf1, xf2, yf2, xf3, yf3, circuitName]);
@@ -172,7 +151,7 @@ function drawFleches(listeFlechesCircuitsVttWithCoords) {
                     100
                 ]
             ],
-            5,
+            lineWidthFleche,
             1,
             color
         );
