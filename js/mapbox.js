@@ -52,7 +52,7 @@ function createMap(myMapStyle) {
   map.on('load', () => {
     // addDebalisage();
     addCircuitsVTT();
-    addPolygonsVTT();
+    // addPolygonsVTT();
     if (type == "all") {
       addCircuitsMarche();
       // addPolygonsMarche();

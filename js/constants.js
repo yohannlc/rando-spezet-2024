@@ -194,6 +194,18 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
   circleRadius = circleRadius_Sat;
 }
 
+/* --------------------------------- Flèches --------------------------------- */
+
+distanceBetweenFleches = 0.6;
+
+const listeChoosenFleches = [
+  { id: "circuit49", points: [70, 100, 200, 400] },
+  { id: "circuit43", points: [55, 100, 200, 400] },
+  { id: "circuit37", points: [45, 100, 200, 400] },
+  { id: "circuit27", points: [38, 100, 200, 400] },
+  { id: "circuit19", points: [35, 100, 200, 400] },
+]
+
 /* --------------------------------- Polygons --------------------------------- */
 
 colorFleche19 = colorsCircuitsOut['VTT'][0];

@@ -1,5 +1,5 @@
 function drawPortion(portionName, portionType, portionCoordinates, portionLineWitdh, portionLineOpacity, portionColor) {    
-  console.log(portionName, portionType, portionCoordinates, portionLineWitdh, portionLineOpacity, portionColor);
+  // console.log(portionName, portionType, portionCoordinates, portionLineWitdh, portionLineOpacity, portionColor);
   
   map.addSource(portionName, {
       'type': 'geojson',
