@@ -1,8 +1,10 @@
 // Fonctions pour gérer le hover sur les portions
 function portionsHoverEnter(portion) {
-    map.on('mouseenter', portion, function(e) {
+    map.on('mouseenter', portion, function(e) {        
         map.getCanvas().style.cursor = 'pointer';
+
         afficherDivTexteId(portion);
+        
         if (portion.includes("Goazec")) {
             map.setPaintProperty(portion, 'line-width', lineWitdhPortionsPoly+10);
         } else {
@@ -12,7 +14,7 @@ function portionsHoverEnter(portion) {
 }
 
 function portionsHoverLeave(portion) {
-    map.on('mouseleave', portion, function(e) {
+    map.on('mouseleave', portion, function(e) {        
         let ok = true;
         // si un des bools de tabStatesPortions est à true, on ne fait rien
         for (let i = 0; i < tabStatesPortions.length; i+=2) {

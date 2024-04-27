@@ -31,10 +31,10 @@ function changeLegend() {
             divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsSat['Marche'][i] + '; height: 3px;');
         }
 
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Sat + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Sat + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Sat + '; height: 3px;');
-        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Sat + '; height: 3px;');
+        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Sat + '; height: 3px;');
+        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Souff_Sat + '; height: 3px;');
+        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Tronco_Sat + '; height: 3px;');
+        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.PY_Sat + '; height: 3px;');
     } else {
         //enlever la classe "legend-satellite" à la div d'id "legend"
         divLegend.classList.remove("legend-satellite");
@@ -48,12 +48,12 @@ function changeLegend() {
             divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
         }
 
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorDebrou_Out + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorSouff_Out + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorTronco_Out + '; height: 3px;');
-        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorPY_Out + '; height: 3px;');
+        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Out + '; height: 3px;');
+        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Souff_Out + '; height: 3px;');
+        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Tronco_Out + '; height: 3px;');
+        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.PY_Out + '; height: 3px;');
     }
-    divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorCotes + '; height: 3px;');
+    divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Cotes + '; height: 3px;');
 }
 
 function resetAllTraces() {
@@ -73,11 +73,11 @@ function resetAllTraces() {
 // Fonction qui change le width de la line et sa légende en argument en bold et met reset le reste 
 function stateLine(name, state, item) {
     if (state) {
-        map.setPaintProperty(name, 'line-width', lineWitdhCircuit+offsetLineWithCircuit);
+        map.setPaintProperty(name, 'line-width', lineWidthCircuit+offsetLineWithCircuit);
         item.classList.add('bold');
     } else {
         map.setPaintProperty(name, 'line-opacity', lineOpacityCircuit);
-        map.setPaintProperty(name, 'line-width', lineWitdhCircuit);
+        map.setPaintProperty(name, 'line-width', lineWidthCircuit);
         item.classList.remove('bold');
     }
 }
@@ -132,19 +132,19 @@ function changeConstants() {
         color17 = colorsCircuitsOut['Marche'][2];
         
         if (type == 'all') {
-            lineWitdhCircuit = lineWitdhCircuit_Out_All;
-            offset = offset_Out_All;
+            lineWidthCircuit = lineWidthsCircuit.All_Out;
+            offset = offsets.All_Out;
         } else {
-            lineWitdhCircuit = lineWitdhCircuit_Out_NotAll;
-            offset = offset_Out_NotAll;
+            lineWidthCircuit = lineWidthsCircuit.NotAll_Out;
+            offset = offsets.NotAll_Out;
         }
 
-        colorDebrou = colorDebrou_Out;
-        colorSouff = colorSouff_Out;
-        colorPY = colorPY_Out;
-        colorTronco = colorTronco_Out;
+        colorDebrou = colorsPortions.Debrou_Out;
+        colorSouff = colorsPortions.Souff_Out;
+        colorPY = colorsPortions.PY_Out;
+        colorTronco = colorsPortions.Tronco_Out;
 
-        colorRavito = colorRavito_Out;
+        colorRavito = colorsRavito.out;
 
         colorFleche1 = colorsCircuitsOut['VTT'][0];
         colorFleche2 = colorsCircuitsOut['VTT'][2];
@@ -159,19 +159,19 @@ function changeConstants() {
         color17 = colorsCircuitsSat['Marche'][2];
 
         if (type == 'all') {
-            lineWitdhCircuit = lineWitdhCircuit_Sat_All;
-            offset = offset_Sat_All;
+            lineWidthCircuit = lineWidthsCircuit.All_Sat;
+            offset = offsets.All_Sat;
         } else {
-            lineWitdhCircuit = lineWitdhCircuit_Sat_NotAll;
-            offset = offset_Sat_NotAll;
+            lineWidthCircuit = lineWidthsCircuit.NotAll_Sat;
+            offset = offsets.NotAll_Sat;
         }
 
-        colorDebrou = colorDebrou_Sat;
-        colorSouff = colorSouff_Sat;
-        colorPY = colorPY_Sat;
-        colorTronco = colorTronco_Sat;
+        colorDebrou = colorsPortions.Debrou_Sat;
+        colorSouff = colorsPortions.Souff_Sat;
+        colorPY = colorsPortions.PY_Sat;
+        colorTronco = colorsPortions.Tronco_Sat;
 
-        colorRavito = colorRavito_Sat;
+        colorRavito = colorsRavito.sat;
 
         colorFleche1 = colorsCircuitsSat['VTT'][3];
         colorFleche2 = colorsCircuitsSat['VTT'][1];

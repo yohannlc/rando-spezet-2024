@@ -50,9 +50,8 @@ function createMap(myMapStyle) {
 
   // Ajout des traces (circuits et portions)
   map.on('load', () => {
-    // addDebalisage();
     addCircuitsVTT();
-    // addPolygonsVTT();
+    // addDebalisage();
     if (type == "all") {
       addCircuitsMarche();
       // addPolygonsMarche();
@@ -89,11 +88,11 @@ function changeMapStyle() {
     var currentZoom = map.getZoom();
     // changer la lineWidth des portions en fonction du zoom
     if (currentZoom < 13) {
-      changeLineWidthCircuit(lineWitdhCircuit);
+      changeLineWidthCircuit(lineWidthCircuit);
     } else if (currentZoom >= 13 && currentZoom < 14  ) {
-      changeLineWidthCircuit(lineWitdhCircuit * 0.8);
+      changeLineWidthCircuit(lineWidthCircuit * 0.8);
     } else {
-      changeLineWidthCircuit(lineWitdhCircuit * 0.6);
+      changeLineWidthCircuit(lineWidthCircuit * 0.6);
     }
   });
 

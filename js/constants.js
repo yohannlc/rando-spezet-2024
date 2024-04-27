@@ -16,29 +16,6 @@ if (smartphone == true) {
   zoomStart = 10.8; //zoom d'un smartphone pour voir tous les circuits
 }
 
-const descriptions = {
-  "verger1": "Faire les côtés avec une débroussailleuse",
-  "verger2": "Faire les côtés avec une débroussailleuse",
-  "herbeAvantPoulancerf":"Refaire un coup d'ici la randonnée, les côtés sont retombés",
-  "champLise": "Hélène s'en occupe",
-  "avantKermariou": "Y'a de belles ronces qui dépassent, peut-être faire un coup de débroussailleuse",
-  "cozic1": "Arbre à couper",
-  "saintGoazec1": "Quelques arbres à couper peut-être. Notamment dans la boucle qui descend puis remonte (on ne la voit pas sur la trace ici, elle va vers le nord).",
-  "saintGoazec3": "Ici faudra aller check aussi. Peut-être qu'il n'y a rien à faire.",
-  "henry": "Dans le bois en dessous de chez Henre : peut-être faire un coup",
-  "derriereCudel": "Prendre un sécateur ou un truc assez gros pendant le balisage",
-  "avantGaecNormand": "Chemin le long du gazoduc, avant de retourner vers Cudel : faire les côtés, c'est très limite",
-  "taquetDuPeintre": "Quand on remonte vers la vierge depuis la route : faire les côtés",
-  "ravitoKerbellec": "20 - 5<sup>e</sup> km<br>27 - 11<sup>e</sup> km<br>49 - 11<sup>e</sup> km",
-  "ravitoBallTrap": "37 - 16<sup>e</sup> km<br>43 - 18<sup>e</sup> km<br>49 - 24<sup>e</sup> km<br>",
-  "ravitoCudel": "20 - 11<sup>e</sup> km<br>27 - 17<sup>e</sup> km<br>37 - 27<sup>e</sup> km<br>43 - 29<sup>e</sup> km<br>49 - 35<sup>e</sup> km<br>",
-  "halageAvantPasserelle": "Fin du halage avant de prendre la nouvelle passerelle pour remonter chez Thierry : faudra faire un coup nous même",
-  "boisRuisseauCrann": "Arbre à couper",
-  "palae": "Faire les côtés aussi",
-  "boisPalae": "Bois à nettoyer, souffleur et quelques arbres",
-  "parcALapin": "Pierre-Yves a fait au sol, faire un coup sur les côtés",
-};
-
 /* --------------------------------- Circuits --------------------------------- */
 
 // Liste des circuits VTT avec ces coordonnées
@@ -81,15 +58,19 @@ const colorsCircuitsSat = {
               'rgb(252, 143, 128)']
 }
 
-lineWitdhCircuit_Out_All = 2.5;
-offset_Out_All = 0.00015;
-lineWitdhCircuit_Out_NotAll = 5;
-offset_Out_NotAll = 0.00008;
+const lineWidthsCircuit = {
+  All_Out: 2.5,
+  All_Sat: 3,
+  NotAll_Out: 5,
+  NotAll_Sat: 5
+};
 
-lineWitdhCircuit_Sat_All = 3;
-offset_Sat_All = 0.0003;
-lineWitdhCircuit_Sat_NotAll = 5;
-offset_Sat_NotAll = 0.00005;
+const offsets = {
+  All_Out: 0.00015,
+  All_Sat: 0.0003,
+  NotAll_Out: 0.00008,
+  NotAll_Sat: 0.00005
+};
 
 lineOpacityCircuit = 1;
 lineOpacityBackCircuit = 0.15;
@@ -97,19 +78,19 @@ offsetLineWithCircuit = 2;
 
 if (type == 'all') {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-    lineWitdhCircuit = lineWitdhCircuit_Out_All;
-    offset = offset_Out_All;
+    lineWidthCircuit = lineWidthsCircuit.All_Out;
+    offset = offsets.All_Out;
   } else {
-    lineWitdhCircuit = lineWitdhCircuit_Sat_All;
-    offset = offset_Sat_All;
+    lineWidthCircuit = lineWidthsCircuit.All_Sat;
+    offset = offsets.All_Sat;
   }
 } else {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-    lineWitdhCircuit = lineWitdhCircuit_Out_NotAll;
-    offset = offset_Out_NotAll;
+    lineWidthCircuit = lineWidthsCircuit.NotAll_Out;
+    offset = offsets.NotAll_Out;
   } else {
-    lineWitdhCircuit = lineWitdhCircuit_Sat_NotAll;
-    offset = offset_Sat_NotAll;
+    lineWidthCircuit = lineWidthsCircuit.NotAll_Sat;
+    offset = offsets.NotAll_Sat;
   }
 }
 
@@ -153,45 +134,60 @@ lineWitdhPortions = 15;
 lineWitdhPortionsPoly = 20;
 lineOpacityPortions = 0.6;
 
-colorDebrou_Out = "rgb(0, 174, 255)";
-colorDebrou_Sat = "rgb(0, 255, 255)";
-
-colorSouff_Out = "rgb(184, 21, 21)";
-colorSouff_Sat = "rgb(255, 0, 0)";
-
-colorPY_Out = "rgb(255, 255, 0)";
-colorPY_Sat = "rgb(255, 255, 0)";
-
-colorTronco_Out = "rgb(88, 61, 21)";
-colorTronco_Sat = "rgb(244, 214, 148)";
-
-colorCotes = "rgb(0, 255, 162)";
+const colorsPortions = {
+  Debrou_Out: "rgb(0, 174, 255)",
+  Debrou_Sat: "rgb(0, 255, 255)",
+  Souff_Out: "rgb(184, 21, 21)",
+  Souff_Sat: "rgb(255, 0, 0)",
+  PY_Out: "rgb(255, 255, 0)",
+  PY_Sat: "rgb(255, 255, 0)",
+  Tronco_Out: "rgb(88, 61, 21)",
+  Tronco_Sat: "rgb(244, 214, 148)",
+  Cotes: "rgb(0, 255, 162)"
+};
 
 lineOpacityPortions_Out = 0.6;
 lineOpacityPortions_Sat = 0.8;
 
 if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-  colorTronco = colorTronco_Out;
+  colorTronco = colorsPortions.Tronco_Out;
   lineOpacityPortions = lineOpacityPortions_Out;
 } else { // mapbox://styles/mapbox/satellite-streets-v12
-  colorTronco = colorTronco_Sat;
+  colorTronco = colorsPortions.Tronco_Sat;
   lineOpacityPortions = lineOpacityPortions_Sat;
 }
 
+const descriptions = {
+  "verger1": "Faire les côtés avec une débroussailleuse",
+  "verger2": "Faire les côtés avec une débroussailleuse",
+  "ravitoKerbellec": "20 - 5<sup>e</sup> km<br>27 - 11<sup>e</sup> km<br>49 - 11<sup>e</sup> km",
+  "ravitoBallTrap": "37 - 16<sup>e</sup> km<br>43 - 18<sup>e</sup> km<br>49 - 24<sup>e</sup> km<br>",
+  "ravitoCudel": "20 - 11<sup>e</sup> km<br>27 - 17<sup>e</sup> km<br>37 - 27<sup>e</sup> km<br>43 - 29<sup>e</sup> km<br>49 - 35<sup>e</sup> km<br>",
+};
+
+const listePortions = [
+  { id: "verger1", type: "cotes", coords: verger1, color: colorsPortions.cotes, descriptions: descriptions["verger1"] },
+  { id: "verger2", type: "cotes", coords: verger2, color: colorsPortions.cotes, descriptions: descriptions["verger2"] }
+];
+
 /* --------------------------------- Points --------------------------------- */
 
-circleRadius_Out = 10;
-circleRadius_Sat = 15;
+const circlesRadius = { 
+  out: 10, 
+  sat: 15
+};
 
-colorRavito_Out = "rgb(247, 34, 34)";
-colorRavito_Sat = "rgb(247, 34, 34)";
+const colorsRavito = {
+  out: "rgb(247, 34, 34)",
+  sat: "rgb(247, 34, 34)"
+}
 
 if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-  colorRavito = colorRavito_Out;
-  circleRadius = circleRadius_Out;
+  colorRavito = colorsRavito.out;
+  circleRadius = circlesRadius.out;
 } else {
-  colorRavito = colorRavito_Sat;
-  circleRadius = circleRadius_Sat;
+  colorRavito = colorsRavito.sat;
+  circleRadius = circlesRadius.sat;
 }
 
 /* --------------------------------- Flèches --------------------------------- */
