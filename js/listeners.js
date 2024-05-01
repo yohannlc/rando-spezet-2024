@@ -45,6 +45,10 @@ legendItems.forEach(function(item, index) {
         setOnlyOneTrace('circuit43', tabStatesCircuits.stateCircuit43[0], item);
         break;
       case 4:
+        tabStatesCircuits.stateCircuit47[0] = !tabStatesCircuits.stateCircuit47[0];
+        setOnlyOneTrace('circuit47', tabStatesCircuits.stateCircuit47[0], item);
+        break;
+      case 5:
         tabStatesCircuits.stateCircuit49[0] = !tabStatesCircuits.stateCircuit49[0];
         setOnlyOneTrace('circuit49', tabStatesCircuits.stateCircuit49[0], item);
         break;

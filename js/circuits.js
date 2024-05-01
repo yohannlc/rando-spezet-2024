@@ -1,6 +1,6 @@
 function addCircuitsVTT() {
-    for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
-        drawPortion(listeCircuitsVttWithCoords[i].id, "circuit", listeCircuitsVttWithCoords[i].coords, lineWidthCircuit, lineOpacityCircuit, colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-i]);
+    for (let i = 0; i < listeCircuitsVtt.length; i++) {
+        drawPortion(listeCircuitsVtt[i].id, "circuit", listeCircuitsVtt[i].coords, lineWidthCircuit, lineOpacityCircuit, listeCircuitsVtt[i].colorOut);
     }
 }
 
@@ -26,16 +26,16 @@ function removeCircuitsMarche() {
 }
 
 function removeCircuitsVTT() {
-    for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
-        map.removeLayer(listeCircuitsVttWithCoords[i].id);
-        map.removeSource(listeCircuitsVttWithCoords[i].id);
+    for (let i = 0; i < listeCircuitsVtt.length; i++) {
+        map.removeLayer(listeCircuitsVtt[i].id);
+        map.removeSource(listeCircuitsVtt[i].id);
     }
 }
 
 // Fonction pour changer l'épaissseur des portions
 function changeLineWidthCircuit(lineWidth) {
-    for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
-        map.setPaintProperty(listeCircuitsVttWithCoords[i].id, 'line-width', lineWidth);
+    for (let i = 0; i < listeCircuitsVtt.length; i++) {
+        map.setPaintProperty(listeCircuitsVtt[i].id, 'line-width', lineWidth);
     }
     
     if (type == "all") {

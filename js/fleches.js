@@ -124,9 +124,9 @@ function drawFleches(listeFlechesCircuitsVttWithCoords) {
     for (let i = 0; i < listeFlechesCircuitsVttWithCoords.length; i++) {
         // Définir la couleur en fonction du nom du circuit et du tableau colorsCircuitsOut
         let circuitName = listeFlechesCircuitsVttWithCoords[i][6];
-        for (let j = 0; j < listeCircuitsVttWithCoords.length; j++) {
-            if (listeCircuitsVttWithCoords[j].id == circuitName) {
-                color = colorsCircuitsOut['VTT'][listeCircuitsVttWithCoords.length-1-j];
+        for (let j = 0; j < listeCircuitsVtt.length; j++) {
+            if (listeCircuitsVtt[j].id == circuitName) {
+                color = listeCircuitsVtt[j].colorOut;
             }
         }
         
@@ -164,8 +164,8 @@ function addFleches() {
 
     let listeFlechesCircuitsVttWithCoords = [] // [[x, y, angle, xf1, yf1, xf2, yf2, xf3, yf3], ...]
 
-    // listeFlechesCircuitsVtt = getFlechesByEuclidienneDistance(listeCircuitsVttWithCoords, distanceBetweenFleches);
-    listeFlechesCircuitsVtt = getFlechesChoosingCoords(listeCircuitsVttWithCoords, listeChoosenFleches);
-    listeFlechesCircuitsVttWithCoords = calculateFlecheCoords(listeFlechesCircuitsVtt);
-    drawFleches(listeFlechesCircuitsVttWithCoords);
+    // listeFlechesCircuitsVtt = getFlechesByEuclidienneDistance(listeCircuitsVtt, distanceBetweenFleches);
+    listeFlechesCircuitsVtt = getFlechesChoosingCoords(listeCircuitsVtt, listeChoosenFleches);
+    listeFlechesCircuitsVtt = calculateFlecheCoords(listeFlechesCircuitsVtt);
+    drawFleches(listeFlechesCircuitsVtt);
 }

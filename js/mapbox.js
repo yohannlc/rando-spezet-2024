@@ -1,33 +1,3 @@
-let tabStatesPortions = [
-  "verger1",false,
-  "verger2",false,
-  "stang1",false,
-  "champLise",false,
-  "cozic1",false,
-  "kerbellec1",false,
-  "kerbellec2",false,
-  "kerbellec3",false,
-  "saintGoazec1",false,
-  "saintGoazec3",false,
-  "halage1",false,
-  "boisRuisseauCrann",false,
-  "remonterVersPalae",false,
-  "descenteKerdaffret",false,
-  "parcALapin",false,
-]
-
-let tabStatesCircuits = {
-  stateCircuit49: [false, "circuit49"],
-  stateCircuit43: [false, "circuit43"],
-  stateCircuit37: [false, "circuit37"],
-  stateCircuit27: [false, "circuit27"],
-  stateCircuit19: [false, "circuit19"],
-
-  stateCircuit8: [false, "circuit8"],
-  stateCircuit13: [false, "circuit13"],
-  stateCircuit17: [false, "circuit17"],
-};
-
 // Création de la map
 function createMap(myMapStyle) {
   mapboxgl.accessToken = 'pk.eyJ1IjoieW9oYW5ubGMiLCJhIjoiY2xnczI4cHJ1MGF4dDNsb2NienBja3pxbCJ9.pmfEZTINyfbOowGB0I77QA';

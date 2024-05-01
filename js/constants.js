@@ -11,7 +11,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 // Zoom de départ en fonction du support
-zoomStart = 12.3; //zoom d'un pc pour voir tous les circuits
+let zoomStart = 12.3; //zoom d'un pc pour voir tous les circuits
 if (smartphone == true) {
   zoomStart = 10.8; //zoom d'un smartphone pour voir tous les circuits
 }
@@ -19,13 +19,27 @@ if (smartphone == true) {
 /* --------------------------------- Circuits --------------------------------- */
 
 // Liste des circuits VTT avec ces coordonnées
-const listeCircuitsVttWithCoords = [
-  { id: "circuit49", coords: coordsCircuitVtt49 },
-  { id: "circuit43", coords: coordsCircuitVtt43 },
-  { id: "circuit37", coords: coordsCircuitVtt37 },
-  { id: "circuit27", coords: coordsCircuitVtt27 },
-  { id: "circuit19", coords: coordsCircuitVtt19 },
+const listeCircuitsVtt = [
+  { id: "circuit49", coords: coordsCircuitVtt49, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
+  { id: "circuit47", coords: coordsCircuitVtt43, colorOut: 'rgb(0, 0, 147)', colorSat: 'rgb(0, 0, 147)'},
+  { id: "circuit43", coords: coordsCircuitVtt43, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
+  { id: "circuit37", coords: coordsCircuitVtt37, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
+  { id: "circuit27", coords: coordsCircuitVtt27, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(0, 166, 147)'},
+  { id: "circuit19", coords: coordsCircuitVtt19, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
+
+let tabStatesCircuits = {
+  stateCircuit49: [false, listeCircuitsVtt[0].id],
+  stateCircuit47: [false, listeCircuitsVtt[1].id],
+  stateCircuit43: [false, listeCircuitsVtt[2].id],
+  stateCircuit37: [false, listeCircuitsVtt[3].id],
+  stateCircuit27: [false, listeCircuitsVtt[4].id],
+  stateCircuit19: [false, listeCircuitsVtt[5].id],
+
+  stateCircuit8: [false, "circuit8"],
+  stateCircuit13: [false, "circuit13"],
+  stateCircuit17: [false, "circuit17"],
+};
 
 const listeCircuitsMarcheWithCoords = [
   { id: "circuit17", coords: coordsCircuitMarche17 },
@@ -35,11 +49,6 @@ const listeCircuitsMarcheWithCoords = [
 
 // constantes selon le type de carte : couleurs, offset et opacité
 const colorsCircuitsOut = {
-  "VTT" : ['rgb(30, 196, 233)', 
-          'rgb(0, 166, 147)', 
-          'rgb(255, 228, 0)', 
-          'rgb(255, 143, 0)',
-          'rgb(196, 94, 189)'],
   "Marche" : ['rgb(0, 166, 147)', 
               'rgb(129, 97, 154)', 
               'rgb(236, 75, 75)', 
@@ -47,12 +56,6 @@ const colorsCircuitsOut = {
 }
 
 const colorsCircuitsSat = {
-  "VTT" : ['rgb(30, 196, 233)', 
-           'rgb(0, 166, 147)', 
-           'rgb(255, 228, 0)', 
-           'rgb(255, 143, 0)', 
-           'rgb(196, 94, 189)'],
-
   "Marche" : ['rgb(58, 218, 85)', 
               'rgb(255, 0, 120)', 
               'rgb(252, 143, 128)']
@@ -78,9 +81,9 @@ const offsetsCircuits = {
   NotAll_Sat: 0.00004
 };
 
-lineOpacityCircuit = 1;
-lineOpacityBackCircuit = 0.15;
-offsetLineWithCircuit = 2;
+let lineOpacityCircuit = 1;
+let lineOpacityBackCircuit = 0.15;
+let offsetLineWithCircuit = 2;
 
 if (type == 'all') {
   if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
@@ -101,11 +104,11 @@ if (type == 'all') {
 }
 
 // Décalage des traces
-signe = 1;
-j = 0;
-for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
+let signe = 1;
+let j = 0;
+for (let i = 0; i < listeCircuitsVtt.length; i++) {
   // Centré au milieu, la trace du milieu de tableau sera au milieu (coordonnées non décalées)
-  let currentOffset = (offset * i)-offset*(listeCircuitsVttWithCoords.length/2);
+  let currentOffset = (offset * i)-offset*(listeCircuitsVtt.length/2);
 
   // // Le premier au milieu, les autres autour
   // if ((i+1)%2 == 0) {
@@ -114,9 +117,9 @@ for (let i = 0; i < listeCircuitsVttWithCoords.length; i++) {
   // signe = signe * -1;
   // let currentOffset = (offset * j)*signe;
   
-  for (let j = 0; j < listeCircuitsVttWithCoords[i].coords.length; j++) {
-    listeCircuitsVttWithCoords[i].coords[j][0] += currentOffset;
-    listeCircuitsVttWithCoords[i].coords[j][1] += currentOffset;
+  for (let j = 0; j < listeCircuitsVtt[i].coords.length; j++) {
+    listeCircuitsVtt[i].coords[j][0] += currentOffset;
+    listeCircuitsVtt[i].coords[j][1] += currentOffset;
   }
 }
 
@@ -136,9 +139,9 @@ for (let i = 0; i < coordsCircuitMarche8.length; i++) {
 
 /* --------------------------------- Portions --------------------------------- */
 
-lineWitdhPortions = 15;
-lineWitdhPortionsPoly = 20;
-lineOpacityPortions = 0.6;
+let lineWitdhPortions = 15;
+let lineWitdhPortionsPoly = 20;
+let lineOpacityPortions = 0.6;
 
 const colorsPortions = {
   Debrou_Out: "rgb(0, 174, 255)",
@@ -176,6 +179,24 @@ const listePortions = [
   { id: "verger2", type: "cotes", coords: verger2, color: colorsPortions.cotes, descriptions: descriptions["verger2"] }
 ];
 
+let tabStatesPortions = [
+  "verger1",false,
+  "verger2",false,
+  "stang1",false,
+  "champLise",false,
+  "cozic1",false,
+  "kerbellec1",false,
+  "kerbellec2",false,
+  "kerbellec3",false,
+  "saintGoazec1",false,
+  "saintGoazec3",false,
+  "halage1",false,
+  "boisRuisseauCrann",false,
+  "remonterVersPalae",false,
+  "descenteKerdaffret",false,
+  "parcALapin",false,
+]
+
 /* --------------------------------- Points --------------------------------- */
 
 const circlesRadius = { 
@@ -205,6 +226,7 @@ const lineWidthFleche = 4;
 
 const listeChoosenFleches = [
   { id: "circuit49", points: [83,, 200, 400] },
+  { id: "circuit47", points: [] },
   { id: "circuit43", points: [80, 200, 400] },
   { id: "circuit37", points: [77, 200, 400] },
   { id: "circuit27", points: [75, 200, 400] },
@@ -213,9 +235,9 @@ const listeChoosenFleches = [
 
 /* --------------------------------- Polygons --------------------------------- */
 
-colorFleche19 = colorsCircuitsOut['VTT'][0];
-colorFleche27 = colorsCircuitsOut['VTT'][1];
-colorFleche37 = colorsCircuitsOut['VTT'][2];
-colorFleche43 = colorsCircuitsOut['VTT'][3];
-colorFleche49 = colorsCircuitsOut['VTT'][4];
-colorFleche = 'rgb(155, 155, 155)';
+let colorFleche19 = listeCircuitsVtt[5].colorOut;
+let colorFleche27 = listeCircuitsVtt[4].colorOut;
+let colorFleche37 = listeCircuitsVtt[3].colorOut;
+let colorFleche43 = listeCircuitsVtt[2].colorOut;
+let colorFleche49 = listeCircuitsVtt[0].colorOut;
+let colorFleche = 'rgb(155, 155, 155)';

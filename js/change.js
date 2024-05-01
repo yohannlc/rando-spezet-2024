@@ -23,12 +23,12 @@ function changeLegend() {
         divLegend.classList.add("legend-satellite");
         divParams.classList.add("params-satellite");
 
-        for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsSat['VTT'][i] + '; height: 3px;');
+        for (let i = listeCircuitsVtt.length; i < (listeCircuitsVtt.length); i++) {
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  listeCircuitsVtt[listeCircuitsVtt.length-1-i].colorSat + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
-            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsSat['Marche'][i] + '; height: 3px;');
+            divs[i+listeCircuitsVtt.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsSat['Marche'][i] + '; height: 3px;');
         }
 
         divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Sat + '; height: 3px;');
@@ -40,12 +40,12 @@ function changeLegend() {
         divLegend.classList.remove("legend-satellite");
         divParams.classList.remove("params-satellite");
 
-        for (let i = 0; i < (listeCircuitsVttWithCoords.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  colorsCircuitsOut['VTT'][i] + '; height: 3px;');
+        for (let i = 0; i < (listeCircuitsVtt.length); i++) {
+            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  listeCircuitsVtt[listeCircuitsVtt.length-1-i].colorOut + '; height: 3px;');
         }
 
         for (let i = 0; i < (listeCircuitsMarcheWithCoords.length); i++) {
-            divs[i+listeCircuitsVttWithCoords.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
+            divs[i+listeCircuitsVtt.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsCircuitsOut['Marche'][i] + '; height: 3px;');
         }
 
         divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Out + '; height: 3px;');
@@ -121,15 +121,7 @@ function cacherDivTexteId() { // Fonction pour cacher
 }
 
 function changeConstants() {
-    if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-        color49 = colorsCircuitsOut['VTT'][0];
-        color43 = colorsCircuitsOut['VTT'][1];
-        color37 = colorsCircuitsOut['VTT'][2];
-        color27 = colorsCircuitsOut['VTT'][3];
-        color19 = colorsCircuitsOut['VTT'][4];
-        color8 = colorsCircuitsOut['Marche'][0];
-        color13 = colorsCircuitsOut['Marche'][1];
-        color17 = colorsCircuitsOut['Marche'][2];
+    if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {;
         
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Out;
@@ -146,17 +138,9 @@ function changeConstants() {
 
         colorRavito = colorsRavito.out;
 
-        colorFleche1 = colorsCircuitsOut['VTT'][0];
-        colorFleche2 = colorsCircuitsOut['VTT'][2];
+        colorFleche1 = listeCircuitsVtt[0].colorOut;
+        colorFleche2 = listeCircuitsVtt[1].colorOut;
     } else { // mapbox://styles/mapbox/satellite-streets-v12
-        color49 = colorsCircuitsSat['VTT'][0];
-        color43 = colorsCircuitsSat['VTT'][1];
-        color37 = colorsCircuitsSat['VTT'][2];
-        color27 = colorsCircuitsSat['VTT'][3];
-        color19 = colorsCircuitsSat['VTT'][4];
-        color8 = colorsCircuitsSat['Marche'][0];
-        color13 = colorsCircuitsSat['Marche'][1];
-        color17 = colorsCircuitsSat['Marche'][2];
 
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Sat;
