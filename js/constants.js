@@ -20,21 +20,19 @@ if (smartphone == true) {
 
 // Liste des circuits VTT avec ces coordonnées
 const listeCircuitsVtt = [
-  { id: "circuit49", deniv: "1138", coords: coordsCircuitVtt49, colorOut: 'rgb(112, 79, 46)', colorSat: 'rgb(234, 234, 234)'},
-  { id: "circuit42", deniv: "1012", coords: coordsCircuitVtt42, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
-  { id: "circuit37", deniv: "814", coords: coordsCircuitVtt37, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
-  { id: "circuit32", deniv: "700", coords: coordsCircuitVtt32, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
-  { id: "circuit27", deniv: "559", coords: coordsCircuitVtt27, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(0, 166, 147)'},
-  { id: "circuit20", deniv: "344", coords: coordsCircuitVtt20, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
+  { id: "circuit48", coords: coordsCircuitVtt48, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
+  { id: "circuit41", coords: coordsCircuitVtt41, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
+  { id: "circuit37", coords: coordsCircuitVtt37, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
+  { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(0, 166, 147)'},
+  { id: "circuit20", coords: coordsCircuitVtt20, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
 
 let tabStatesCircuits = {
-  stateCircuit49: [false, listeCircuitsVtt[0].id],
-  stateCircuit42: [false, listeCircuitsVtt[1].id],
+  stateCircuit48: [false, listeCircuitsVtt[0].id],
+  stateCircuit41: [false, listeCircuitsVtt[1].id],
   stateCircuit37: [false, listeCircuitsVtt[2].id],
-  stateCircuit32: [false, listeCircuitsVtt[3].id],
-  stateCircuit27: [false, listeCircuitsVtt[4].id],
-  stateCircuit20: [false, listeCircuitsVtt[5].id],
+  stateCircuit28: [false, listeCircuitsVtt[3].id],
+  stateCircuit20: [false, listeCircuitsVtt[4].id],
 
   stateCircuit8: [false, "circuit8"],
   stateCircuit13: [false, "circuit13"],
@@ -225,19 +223,18 @@ const angleFleche = 140;
 const lineWidthFleche = 4;
 
 const listeChoosenFleches = [
-  { id: "circuit49", points: [83,, 200, 400] },
-  { id: "circuit43", points: [80, 200, 400] },
+  { id: "circuit48", points: [83,, 200, 400] },
+  { id: "circuit41", points: [80, 200, 400] },
   { id: "circuit37", points: [77, 200, 400] },
-  { id: "circuit32", points: [] },
-  { id: "circuit27", points: [75, 200, 400] },
+  { id: "circuit28", points: [75, 200, 400] },
   { id: "circuit20", points: [25, 98, 418] },
 ]
 
 /* --------------------------------- Polygons --------------------------------- */
 
-let colorFleche19 = listeCircuitsVtt[5].colorOut;
-let colorFleche27 = listeCircuitsVtt[4].colorOut;
-let colorFleche37 = listeCircuitsVtt[3].colorOut;
-let colorFleche43 = listeCircuitsVtt[2].colorOut;
+let colorFleche19 = listeCircuitsVtt[4].colorOut;
+let colorFleche27 = listeCircuitsVtt[3].colorOut;
+let colorFleche37 = listeCircuitsVtt[2].colorOut;
+let colorFleche43 = listeCircuitsVtt[1].colorOut;
 let colorFleche49 = listeCircuitsVtt[0].colorOut;
 let colorFleche = 'rgb(155, 155, 155)';
