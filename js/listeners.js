@@ -29,24 +29,24 @@ legendItems.forEach(function(item, index) {
     
     switch(index) {
       case 0:
-        tabStatesCircuits.stateCircuit19[0] = !tabStatesCircuits.stateCircuit19[0];
-        setOnlyOneTrace('circuit19', tabStatesCircuits.stateCircuit19[0], item);
+        tabStatesCircuits.stateCircuit20[0] = !tabStatesCircuits.stateCircuit20[0];
+        setOnlyOneTrace('circuit20', tabStatesCircuits.stateCircuit20[0], item);
         break;
       case 1:
         tabStatesCircuits.stateCircuit27[0] = !tabStatesCircuits.stateCircuit27[0];
         setOnlyOneTrace('circuit27', tabStatesCircuits.stateCircuit27[0], item);
         break;
       case 2:
+        tabStatesCircuits.stateCircuit32[0] = !tabStatesCircuits.stateCircuit32[0];
+        setOnlyOneTrace('circuit32', tabStatesCircuits.stateCircuit32[0], item);
+        break;
+      case 3:
         tabStatesCircuits.stateCircuit37[0] = !tabStatesCircuits.stateCircuit37[0];
         setOnlyOneTrace('circuit37', tabStatesCircuits.stateCircuit37[0], item);
         break;
-      case 3:
-        tabStatesCircuits.stateCircuit43[0] = !tabStatesCircuits.stateCircuit43[0];
-        setOnlyOneTrace('circuit43', tabStatesCircuits.stateCircuit43[0], item);
-        break;
       case 4:
-        tabStatesCircuits.stateCircuit47[0] = !tabStatesCircuits.stateCircuit47[0];
-        setOnlyOneTrace('circuit47', tabStatesCircuits.stateCircuit47[0], item);
+        tabStatesCircuits.stateCircuit42[0] = !tabStatesCircuits.stateCircuit42[0];
+        setOnlyOneTrace('circuit42', tabStatesCircuits.stateCircuit42[0], item);
         break;
       case 5:
         tabStatesCircuits.stateCircuit49[0] = !tabStatesCircuits.stateCircuit49[0];

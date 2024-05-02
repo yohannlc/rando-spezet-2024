@@ -22,8 +22,8 @@ function changeLegend() {
         //ajouter la classe "legend-satellite" à la div d'id "legend"
         divLegend.classList.add("legend-satellite");
         divParams.classList.add("params-satellite");
-
-        for (let i = listeCircuitsVtt.length; i < (listeCircuitsVtt.length); i++) {
+        
+        for (let i = 0; i < (listeCircuitsVtt.length); i++) {
             divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  listeCircuitsVtt[listeCircuitsVtt.length-1-i].colorSat + '; height: 3px;');
         }
 
@@ -137,9 +137,6 @@ function changeConstants() {
         colorTronco = colorsPortions.Tronco_Out;
 
         colorRavito = colorsRavito.out;
-
-        colorFleche1 = listeCircuitsVtt[0].colorOut;
-        colorFleche2 = listeCircuitsVtt[1].colorOut;
     } else { // mapbox://styles/mapbox/satellite-streets-v12
 
         if (type == 'all') {
@@ -156,9 +153,6 @@ function changeConstants() {
         colorTronco = colorsPortions.Tronco_Sat;
 
         colorRavito = colorsRavito.sat;
-
-        colorFleche1 = colorsCircuitsSat['VTT'][3];
-        colorFleche2 = colorsCircuitsSat['VTT'][1];
     }
 }
 

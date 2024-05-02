@@ -34,8 +34,6 @@ function createMap(myMapStyle) {
   return map;
 }
 
-let map;
-changeMapStyle();
 
 // Fonction pour changer le style de la map (standby)
 function changeMapStyle() {
@@ -71,6 +69,9 @@ function changeMapStyle() {
     resetAllTraces();
   });
 }
+
+let map;
+changeMapStyle();
 
 // Si on est pas sur un smartphone, il y a la fonction qui permet de cliquer sur les circuits directement sur la carte
 // Sinon, il faut cocher la case "Circuits Cliquables" pour pouvoir cliquer sur les circuits sur la carte
