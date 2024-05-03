@@ -68,15 +68,15 @@ const lineWidthsCircuit = {
 
 const lineWidthsCircuitByZoom = {
   SmallZoom: 1,
-  MediumZoom: 0.8,
-  LargeZoom: 0.7
+  MediumZoom: 1,
+  LargeZoom: 1
 }
 
 const offsetsCircuits = {
   All_Out: 0.00015,
   All_Sat: 0.0003,
-  NotAll_Out: 0.00008,
-  NotAll_Sat: 0.00004
+  NotAll_Out: 0.000047,
+  NotAll_Sat: 0.00005
 };
 
 let lineOpacityCircuit = 1;
@@ -167,9 +167,9 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 const descriptions = {
   "verger1": "Faire les côtés avec une débroussailleuse",
   "verger2": "Faire les côtés avec une débroussailleuse",
-  "ravitoKerbellec": "20 - 5<sup>e</sup> km<br>27 - 11<sup>e</sup> km<br>49 - 11<sup>e</sup> km",
-  "ravitoBallTrap": "37 - 16<sup>e</sup> km<br>43 - 18<sup>e</sup> km<br>49 - 24<sup>e</sup> km<br>",
-  "ravitoCudel": "20 - 11<sup>e</sup> km<br>27 - 17<sup>e</sup> km<br>37 - 27<sup>e</sup> km<br>43 - 29<sup>e</sup> km<br>49 - 35<sup>e</sup> km<br>",
+  "ravitoTrevillyHuella": "28 - 8<sup>e</sup> km<br>48 - 8<sup>e</sup> km",
+  "ravitoVirageStGoazec": "37 - 12<sup>e</sup> km<br>41 - 11<sup>e</sup> km<br>48 - 17<sup>e</sup> km<br><br>37 - 14<sup>e</sup> km<br>41 - 16<sup>e</sup> km<br>48 - 22<sup>e</sup> km",
+  "ravitoCudel": "20 - 10<sup>e</sup> km<br>28 - 16<sup>e</sup> km<br>37 - 26<sup>e</sup> km<br>41 - 30<sup>e</sup> km<br>48 - 36<sup>e</sup> km<br>",
 };
 
 const listePortions = [

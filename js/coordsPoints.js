@@ -13,6 +13,16 @@ let ravitoBallTrap = [
     48.155110934494644
 ];
 
+let ravitoVirageStGoazec = [
+    -3.780187802738311,
+    48.153215305666095
+];
+
+let ravitoTrevilyHuella = [
+    -3.749616643849663,
+    48.176575808627916
+];
+
 let ravitoKerdaffret = [
     -3.7496976272579445,
     48.1897297331804
