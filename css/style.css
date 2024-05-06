@@ -320,7 +320,7 @@ input:checked + .slider:before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 15px 0px;
 }
 
 .div-texte-top h4 {
@@ -336,8 +336,12 @@ input:checked + .slider:before {
 }
 
 .parag {
-    margin: 20px 0px;
+    margin: 15px 0px;
     font-size: 15px;
+    height: 75%;
+    overflow: auto;
+    column-count: 2;
+    column-gap: 20px;
 }
 
 /* ------------------ End properties ------------------ */
