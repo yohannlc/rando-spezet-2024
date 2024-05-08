@@ -223,9 +223,9 @@ const angleFleche = 140;
 const lineWidthFleche = 4;
 
 const listeChoosenFleches = [
-  { id: listeCircuitsVtt[0].id, points: [83, 200, 400] },
-  { id: listeCircuitsVtt[1].id, points: [80, 200, 400] },
-  { id: listeCircuitsVtt[2].id, points: [77, 200, 400] },
-  { id: listeCircuitsVtt[3].id, points: [59, 400, 760, 900, 1045, 1353, 1550, 1631, 1779] },
-  { id: listeCircuitsVtt[4].id, points: [9, 50, 150, 308, 595, 770, 929] },
+  { id: listeCircuitsVtt[0].id, points: [90, 427, 830, 915, 1100, 1435, 2295, 2760, 3093, 3255, 3856, 4080] },
+  { id: listeCircuitsVtt[1].id, points: [73, 450, 728, 790, 1500, 1950, 2250, 2460, 2775, 3000, 3240] },
+  { id: listeCircuitsVtt[2].id, points: [14, 51, 87, 250, 517, 588, 825, 1330, 1634, 1746, 2105, 2200] },
+  { id: listeCircuitsVtt[3].id, points: [59, 400, 760, 900, 1045, 1550, 1605] },
+  { id: listeCircuitsVtt[4].id, points: [9, 50, 150, 309, 595, 795] },
 ]

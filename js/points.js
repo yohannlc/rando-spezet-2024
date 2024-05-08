@@ -32,5 +32,5 @@ function addPoint(pointName, pointType, pointCoordinates, pointColor) {
 function addPoints() {
   addPoint("ravitoTrevillyHuella", "ravito", ravitoTrevilyHuella, colorRavito);
   addPoint("ravitoVirageStGoazec", "ravito", ravitoVirageStGoazec, colorRavito);
-  addPoint("ravitoCudel", "ravito", ravitoCudel2, colorRavito);
+  addPoint("ravitoCudel", "ravito", ravitoCudel, colorRavito);
 }
