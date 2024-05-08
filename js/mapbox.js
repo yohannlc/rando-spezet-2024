@@ -27,7 +27,6 @@ function createMap(myMapStyle) {
       // addPolygonsMarche();
     }
     addPoints();
-    addFleches();
     // if (typePo == "vttAvecPo") {addPortions();}
   });
 

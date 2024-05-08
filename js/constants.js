@@ -22,17 +22,17 @@ if (smartphone == true) {
 const listeCircuitsVtt = [
   { id: "circuit48", coords: coordsCircuitVtt48, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
   { id: "circuit41", coords: coordsCircuitVtt41, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
-  { id: "circuit37", coords: coordsCircuitVtt37, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
+  { id: "circuit36", coords: coordsCircuitVtt36, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
   { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(0, 166, 147)'},
-  { id: "circuit20", coords: coordsCircuitVtt20, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
+  { id: "circuit19", coords: coordsCircuitVtt19, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
 
 let tabStatesCircuits = {
   stateCircuit48: [false, listeCircuitsVtt[0].id],
   stateCircuit41: [false, listeCircuitsVtt[1].id],
-  stateCircuit37: [false, listeCircuitsVtt[2].id],
+  stateCircuit36: [false, listeCircuitsVtt[2].id],
   stateCircuit28: [false, listeCircuitsVtt[3].id],
-  stateCircuit20: [false, listeCircuitsVtt[4].id],
+  stateCircuit19: [false, listeCircuitsVtt[4].id],
 
   stateCircuit8: [false, "circuit8"],
   stateCircuit13: [false, "circuit13"],
@@ -218,23 +218,14 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 /* --------------------------------- Flèches --------------------------------- */
 
 const distanceBetweenFleches = 0.6;
-const longueurFleche = 0.001;
+const longueurFleche = 0.00125;
 const angleFleche = 140;
 const lineWidthFleche = 4;
 
 const listeChoosenFleches = [
-  { id: "circuit48", points: [83,, 200, 400] },
-  { id: "circuit41", points: [80, 200, 400] },
-  { id: "circuit37", points: [77, 200, 400] },
-  { id: "circuit28", points: [75, 200, 400] },
-  { id: "circuit20", points: [25, 98, 418] },
+  { id: listeCircuitsVtt[0].id, points: [83, 200, 400] },
+  { id: listeCircuitsVtt[1].id, points: [80, 200, 400] },
+  { id: listeCircuitsVtt[2].id, points: [77, 200, 400] },
+  { id: listeCircuitsVtt[3].id, points: [59, 400, 760, 900, 1045, 1353, 1550, 1631, 1779] },
+  { id: listeCircuitsVtt[4].id, points: [9, 50, 150, 308, 595, 770, 929] },
 ]
-
-/* --------------------------------- Polygons --------------------------------- */
-
-let colorFleche19 = listeCircuitsVtt[4].colorOut;
-let colorFleche27 = listeCircuitsVtt[3].colorOut;
-let colorFleche37 = listeCircuitsVtt[2].colorOut;
-let colorFleche43 = listeCircuitsVtt[1].colorOut;
-let colorFleche49 = listeCircuitsVtt[0].colorOut;
-let colorFleche = 'rgb(155, 155, 155)';

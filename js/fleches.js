@@ -111,19 +111,10 @@ function calculateFlecheCoords(listeFlechesCircuitsVtt) {
 
 
 // Utiliser drawPortion pour dessiner les flèches
-function drawFleches(listeFlechesCircuitsVttWithCoords) {
-    // drawPortion(
-    //     portionName, 
-    //     portionType, 
-    //     portionCoordinates, 
-    //     portionLineWitdh, 
-    //     portionLineOpacity, 
-    //     portionColor
-    // );
-
-    for (let i = 0; i < listeFlechesCircuitsVttWithCoords.length; i++) {
+function drawFleches(listeFlechesCircuitsVtt) {
+    for (let i = 0; i < listeFlechesCircuitsVtt.length; i++) {
         // Définir la couleur en fonction du nom du circuit et du tableau colorsCircuitsOut
-        let circuitName = listeFlechesCircuitsVttWithCoords[i][6];
+        let circuitName = listeFlechesCircuitsVtt[i][6];
         for (let j = 0; j < listeCircuitsVtt.length; j++) {
             if (listeCircuitsVtt[j].id == circuitName) {
                 color = listeCircuitsVtt[j].colorOut;
@@ -132,22 +123,22 @@ function drawFleches(listeFlechesCircuitsVttWithCoords) {
         
 
         drawPortion(
-            "fleche" + i,
+            circuitName + "_" + "fleche" + i,
             "fleche",
             [
                 [
-                    listeFlechesCircuitsVttWithCoords[i][0],
-                    listeFlechesCircuitsVttWithCoords[i][1],
+                    listeFlechesCircuitsVtt[i][0],
+                    listeFlechesCircuitsVtt[i][1],
                     100
                 ],
                 [
-                    listeFlechesCircuitsVttWithCoords[i][2],
-                    listeFlechesCircuitsVttWithCoords[i][3],
+                    listeFlechesCircuitsVtt[i][2],
+                    listeFlechesCircuitsVtt[i][3],
                     100
                 ],
                 [
-                    listeFlechesCircuitsVttWithCoords[i][4],
-                    listeFlechesCircuitsVttWithCoords[i][5],
+                    listeFlechesCircuitsVtt[i][4],
+                    listeFlechesCircuitsVtt[i][5],
                     100
                 ]
             ],
@@ -158,11 +149,20 @@ function drawFleches(listeFlechesCircuitsVttWithCoords) {
     }
 }
 
+function addFlecheForACircuit(circuitName) {
+    let listeFlechesCircuitsVtt = [] // [[x, y, angle], ...]
+
+    // listeFlechesCircuitsVtt = getFlechesByEuclidienneDistance(listeCircuitsVtt, distanceBetweenFleches);
+    listeFlechesCircuitsVtt = getFlechesChoosingCoords(listeCircuitsVtt, listeChoosenFleches);
+    listeFlechesCircuitsVtt = calculateFlecheCoords(listeFlechesCircuitsVtt);
+
+    let listeFlechesCircuit = listeFlechesCircuitsVtt.filter(fleche => fleche[6] == circuitName);
+    drawFleches(listeFlechesCircuit);
+}
+
 // Fonction pour ajouter les flèches
 function addFleches() {
     let listeFlechesCircuitsVtt = [] // [[x, y, angle], ...]
-
-    let listeFlechesCircuitsVttWithCoords = [] // [[x, y, angle, xf1, yf1, xf2, yf2, xf3, yf3], ...]
 
     // listeFlechesCircuitsVtt = getFlechesByEuclidienneDistance(listeCircuitsVtt, distanceBetweenFleches);
     listeFlechesCircuitsVtt = getFlechesChoosingCoords(listeCircuitsVtt, listeChoosenFleches);
