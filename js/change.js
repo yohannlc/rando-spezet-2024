@@ -3,10 +3,10 @@ function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
     resetAllTraces();
     stateLine(circuitName, circuitState, circuitItem);
     
-    for (let i of Object.values(tabStatesCircuits)) {
-        if (i[1] != circuitName) {
+    for (let i of Object.values(tabStatesCircuits)) { // Pour chaque circuit
+        if (i[1] != circuitName) { // Si le circuit n'est pas celui en argument
             if (!(type !="all" && (i[1] == "circuit8" || i[1] == "circuit13" || i[1] == "circuit17"))) {
-                map.setPaintProperty(i[1], 'line-opacity', lineOpacityBackCircuit); // On remet l'opacité de la ligne à la normale
+                changeCircuitState(i[1], lineOpacityBackCircuit, lineWidthCircuit);
             }
         }
     }
@@ -71,16 +71,27 @@ function resetAllTraces() {
 }
 
 // Fonction qui change le width de la line et sa légende en argument en bold et met reset le reste 
-function stateLine(name, state, item) {
+function stateLine(circuitName, state, item) {
     if (state) {
-        map.setPaintProperty(name, 'line-width', lineWidthCircuit+offsetLineWithCircuit);
+        changeCircuitState(circuitName, lineOpacityCircuit, lineWidthCircuit+offsetLineWithCircuit)
         item.classList.add('bold');
     } else {
-        map.setPaintProperty(name, 'line-opacity', lineOpacityCircuit);
-        map.setPaintProperty(name, 'line-width', lineWidthCircuit);
+        changeCircuitState(circuitName, lineOpacityCircuit, lineWidthCircuit);
         item.classList.remove('bold');
     }
 }
+
+function changeCircuitState(circuitName, opacity, width) {
+    map.setPaintProperty(circuitName, 'line-opacity', opacity);
+    map.setPaintProperty(circuitName, 'line-width', width);
+    let i = 0;
+    while (map.getLayer(circuitName + "_fleche" + i)) {
+        map.setPaintProperty(circuitName + "_fleche" + i, 'line-opacity', opacity);
+        map.setPaintProperty(circuitName + "_fleche" + i, 'line-width', width);
+        i++;
+    }
+}
+
 
 // Gérer l'affichage de la popup de texte
 function afficherDivTexteId(portionName) {

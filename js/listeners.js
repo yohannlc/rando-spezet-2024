@@ -24,9 +24,7 @@ for (let i of legendItems) {
 
 // Ajouter un événement de clic à chaque élément de la légende
 legendItems.forEach(function(item, index) {
-  item.addEventListener('click', function() {
-    resetAllTraces();
-    
+  item.addEventListener('click', function() {    
     switch(index) {
       case 0:
         tabStatesCircuits.stateCircuit19[0] = !tabStatesCircuits.stateCircuit19[0];
