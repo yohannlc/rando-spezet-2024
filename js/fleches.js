@@ -117,7 +117,11 @@ function drawFleches(listeFlechesCircuitsVtt) {
         let circuitName = listeFlechesCircuitsVtt[i][6];
         for (let j = 0; j < listeCircuitsVtt.length; j++) {
             if (listeCircuitsVtt[j].id == circuitName) {
-                color = listeCircuitsVtt[j].colorOut;
+                if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
+                    color = listeCircuitsVtt[j].colorOut;
+                } else {
+                    color = listeCircuitsVtt[j].colorSat;
+                }
             }
         }
         

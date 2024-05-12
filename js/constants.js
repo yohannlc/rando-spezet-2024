@@ -23,7 +23,7 @@ const listeCircuitsVtt = [
   { id: "circuit48", coords: coordsCircuitVtt48, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
   { id: "circuit41", coords: coordsCircuitVtt41, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
   { id: "circuit36", coords: coordsCircuitVtt36, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
-  { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(0, 166, 147)'},
+  { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(49, 215, 107)'},
   { id: "circuit19", coords: coordsCircuitVtt19, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
 
