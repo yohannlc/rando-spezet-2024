@@ -218,9 +218,9 @@ if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
 /* --------------------------------- Flèches --------------------------------- */
 
 const distanceBetweenFleches = 0.6;
-const longueurFleche = 0.00125;
-const angleFleche = 140;
-const lineWidthFleche = 4;
+const longueurFleche = 0.001;
+const angleFleche = 145;
+const lineWidthFleche = 3;
 
 const listeChoosenFleches = [
   { id: listeCircuitsVtt[0].id, points: [90, 427, 830, 915, 1100, 1435, 2295, 2760, 3093, 3856, 4080] },
