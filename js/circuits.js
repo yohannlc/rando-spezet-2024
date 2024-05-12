@@ -37,16 +37,3 @@ function removeCircuitsVTT() {
         map.removeSource(listeCircuitsVtt[i].id);
     }
 }
-
-// Fonction pour changer l'épaissseur des portions
-function changeLineWidthCircuit(lineWidth) {
-    for (let i = 0; i < listeCircuitsVtt.length; i++) {
-        map.setPaintProperty(listeCircuitsVtt[i].id, 'line-width', lineWidth);
-    }
-    
-    if (type == "all") {
-        for (let i = 0; i < listeCircuitsMarcheWithCoords.length; i++) {
-            map.setPaintProperty(listeCircuitsMarcheWithCoords[i].id, 'line-width', lineWidth);
-        }
-    }
-}

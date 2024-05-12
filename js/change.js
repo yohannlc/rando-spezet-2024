@@ -92,6 +92,29 @@ function changeCircuitState(circuitName, opacity, width) {
     }
 }
 
+function changeSelonZoom(currentZoom) {
+    if (currentZoom < 13) {
+        changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.SmallZoom);
+    } else if (currentZoom >= 13 && currentZoom < 14  ) {
+        changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.MediumZoom);
+    } else {
+        changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.LargeZoom);
+    }
+}
+
+// Fonction pour changer l'épaissseur des portions
+function changeLineWidthCircuit(lineWidth) {
+    for (let i = 0; i < listeCircuitsVtt.length; i++) {
+        map.setPaintProperty(listeCircuitsVtt[i].id, 'line-width', lineWidth);
+    }
+    
+    if (type == "all") {
+        for (let i = 0; i < listeCircuitsMarcheWithCoords.length; i++) {
+            map.setPaintProperty(listeCircuitsMarcheWithCoords[i].id, 'line-width', lineWidth);
+        }
+    }
+}
+
 
 // Gérer l'affichage de la popup de texte
 function afficherDivTexteId(portionName) {

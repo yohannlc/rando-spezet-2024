@@ -53,14 +53,7 @@ function changeMapStyle() {
   // Attente de changement de la valeur currentZoom = map.getZoom();
   map.on('zoomend', function() {
     var currentZoom = map.getZoom();
-    // changer la lineWidth des portions en fonction du zoom
-    if (currentZoom < 13) {
-      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.SmallZoom);
-    } else if (currentZoom >= 13 && currentZoom < 14  ) {
-      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.MediumZoom);
-    } else {
-      changeLineWidthCircuit(lineWidthCircuit * lineWidthsCircuitByZoom.LargeZoom);
-    }
+    changeSelonZoom(currentZoom);
   });
 
   // Lors d'un click n'importe où sur la carte
