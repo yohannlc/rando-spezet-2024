@@ -27,6 +27,12 @@ const listeCircuitsVtt = [
   { id: "circuit19", coords: coordsCircuitVtt19, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
 
+const listeCircuitsMarche = [
+  { id: "circuit17", coords: coordsCircuitMarche17, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(58, 218, 85)'},
+  { id: "circuit13", coords: coordsCircuitMarche13, colorOut: 'rgb(129, 97, 154)', colorSat: 'rgb(255, 0, 120)'},
+  { id: "circuit8", coords: coordsCircuitMarche8, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(252, 143, 128)'}
+];
+
 let tabStatesCircuits = {
   stateCircuit48: [false, listeCircuitsVtt[0].id],
   stateCircuit41: [false, listeCircuitsVtt[1].id],
@@ -34,30 +40,10 @@ let tabStatesCircuits = {
   stateCircuit28: [false, listeCircuitsVtt[3].id],
   stateCircuit19: [false, listeCircuitsVtt[4].id],
 
-  stateCircuit8: [false, "circuit8"],
-  stateCircuit13: [false, "circuit13"],
-  stateCircuit17: [false, "circuit17"],
+  stateCircuit17: [false, listeCircuitsMarche[0].id],
+  stateCircuit13: [false, listeCircuitsMarche[1].id],
+  stateCircuit8: [false, listeCircuitsMarche[2].id]
 };
-
-const listeCircuitsMarcheWithCoords = [
-  { id: "circuit17", coords: coordsCircuitMarche17 },
-  { id: "circuit13", coords: coordsCircuitMarche13 },
-  { id: "circuit8", coords: coordsCircuitMarche8 }
-];
-
-// constantes selon le type de carte : couleurs, offset et opacité
-const colorsCircuitsOut = {
-  "Marche" : ['rgb(0, 166, 147)', 
-              'rgb(129, 97, 154)', 
-              'rgb(236, 75, 75)', 
-              'rgb(0, 166, 147)']
-}
-
-const colorsCircuitsSat = {
-  "Marche" : ['rgb(58, 218, 85)', 
-              'rgb(255, 0, 120)', 
-              'rgb(252, 143, 128)']
-}
 
 const lineWidthsCircuit = {
   All_Out: 2.5,
@@ -122,16 +108,16 @@ for (let i = 0; i < listeCircuitsVtt.length; i++) {
 }
 
 for (let i = 0; i < coordsCircuitMarche17.length; i++) {
-  coordsCircuitMarche17[i][0] += offset*1.5;
-  coordsCircuitMarche17[i][1] += offset*1.5;
+  listeCircuitsMarche[0].coords[i][0] += offset*1.5;
+  listeCircuitsMarche[0].coords[i][1] += offset*1.5;
 }
 for (let i = 0; i < coordsCircuitMarche13.length; i++) {
-  coordsCircuitMarche13[i][0] += offset*2;
-  coordsCircuitMarche13[i][1] += offset*2;
+  listeCircuitsMarche[1].coords[i][0] += offset*2;
+  listeCircuitsMarche[1].coords[i][1] += offset*2;
 }
 for (let i = 0; i < coordsCircuitMarche8.length; i++) {
-  coordsCircuitMarche8[i][0] += offset*2.5;
-  coordsCircuitMarche8[i][1] += offset*2.5;
+  listeCircuitsMarche[2].coords[i][0] += offset*2.5;
+  listeCircuitsMarche[2].coords[i][1] += offset*2.5;
 }
 
 

@@ -1,3 +1,4 @@
+// // Fonction de popup à l'ouverure de la page
 // window.addEventListener('DOMContentLoaded', function() {
 //   var popup = document.getElementById('popup');
 //   var closeButton = popup.querySelector('.close');
@@ -15,15 +16,15 @@
 // });
 
 // Enregistrer les éléments de la légende dans une variable
-const legendItems = document.querySelectorAll('#legendCircuitsVTT div');
+const legendItemsVTT = document.querySelectorAll('#legendCircuitsVTT div');
 
 let items = [];
-for (let i of legendItems) {
+for (let i of legendItemsVTT) {
   items.push(i);
 }
 
 // Ajouter un événement de clic à chaque élément de la légende
-legendItems.forEach(function(item, index) {
+legendItemsVTT.forEach(function(item, index) {
   item.addEventListener('click', function() {    
     switch(index) {
       case 0:
@@ -45,12 +46,44 @@ legendItems.forEach(function(item, index) {
       case 4:
         tabStatesCircuits.stateCircuit48[0] = !tabStatesCircuits.stateCircuit48[0];
         setOnlyOneTrace('circuit48', tabStatesCircuits.stateCircuit48[0], item);
-        break;
+        break; 
       default:
         return;
     }
   });
 });
+
+// Si le type est all
+
+if (type === "all") {
+  const legendItemsMarche = document.querySelectorAll('#legendCircuitsMarche div');
+
+  for (let i of legendItemsMarche) {
+    items.push(i);
+  }
+
+  // Ajouter un événement de clic à chaque élément de la légende
+  legendItemsMarche.forEach(function(item, index) {
+    item.addEventListener('click', function() {    
+      switch(index) {
+        case 0:
+          tabStatesCircuits.stateCircuit8[0] = !tabStatesCircuits.stateCircuit8[0];
+          setOnlyOneTrace('circuit8', tabStatesCircuits.stateCircuit8[0], item);
+          break;
+        case 1:
+          tabStatesCircuits.stateCircuit13[0] = !tabStatesCircuits.stateCircuit13[0];
+          setOnlyOneTrace('circuit13', tabStatesCircuits.stateCircuit13[0], item);
+          break;
+        case 2:
+          tabStatesCircuits.stateCircuit17[0] = !tabStatesCircuits.stateCircuit17[0];
+          setOnlyOneTrace('circuit17', tabStatesCircuits.stateCircuit17[0], item);
+          break;
+        default:
+          return;
+      }
+    });
+  });
+}
 
 // Voir si on a coché la case "Circuits Cliquables"
 // let checkboxCircCliq = document.getElementById("cirqCliq");

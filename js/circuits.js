@@ -11,8 +11,14 @@ function addCircuitsVTT() {
 }
 
 function addCircuitsMarche() {
-    for (let i = 0; i < listeCircuitsMarcheWithCoords.length; i++) {
-        drawPortion(listeCircuitsMarcheWithCoords[i].id, "circuit", listeCircuitsMarcheWithCoords[i].coords, lineWidthCircuit, lineOpacityCircuit, "red");
+    if ( mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
+        for (let i = 0; i < listeCircuitsMarche.length; i++) {
+            drawPortion(listeCircuitsMarche[i].id, "circuit", listeCircuitsMarche[i].coords, lineWidthCircuit, lineOpacityCircuit, listeCircuitsMarche[i].colorOut);
+        }
+    } else {
+        for (let i = 0; i < listeCircuitsMarche.length; i++) {
+            drawPortion(listeCircuitsMarche[i].id, "circuit", listeCircuitsMarche[i].coords, lineWidthCircuit, lineOpacityCircuit, listeCircuitsMarche[i].colorSat);
+        }
     }
 
     //display la div d'id =legendCircuitsMarche
@@ -21,9 +27,9 @@ function addCircuitsMarche() {
 }
   
 function removeCircuitsMarche() {
-    for (let i = 0; i < listeCircuitsMarcheWithCoords.length; i++) {
-        map.removeLayer(listeCircuitsMarcheWithCoords[i].id);
-        map.removeSource(listeCircuitsMarcheWithCoords[i].id);
+    for (let i = 0; i < listeCircuitsMarche.length; i++) {
+        map.removeLayer(listeCircuitsMarche[i].id);
+        map.removeSource(listeCircuitsMarche[i].id);
     }
 
     //hide la div d'id =legendCircuitsMarche
