@@ -2,7 +2,7 @@
 let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
-let mapStyle = 'mapbox://styles/mapbox/outdoors-v12';
+let mapStyle;
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
 let smartphone = false; //par défaut, on considère que c'est un pc
@@ -49,7 +49,7 @@ const lineWidthsCircuit = {
   All_Out: 2.5,
   All_Sat: 3,
   NotAll_Out: 5,
-  NotAll_Sat: 4
+  NotAll_Sat: 3 // NotAll_Sat: 3 pour screen sinon 4
 };
 
 const lineWidthsCircuitByZoom = {
@@ -60,9 +60,9 @@ const lineWidthsCircuitByZoom = {
 
 const offsetsCircuits = {
   All_Out: 0.00015,
-  All_Sat: 0.0003,
+  All_Sat: 0.0002,
   NotAll_Out: 0.000047,
-  NotAll_Sat: 0.00005
+  NotAll_Sat: 0.0002 // NotAll_Sat: 0.0002 pour screen sinon 0.00005
 };
 
 let lineOpacityCircuit = 1;
@@ -185,7 +185,7 @@ let tabStatesPortions = [
 
 const circlesRadius = { 
   out: 10, 
-  sat: 15
+  sat: 10
 };
 
 const colorsRavito = {
@@ -208,10 +208,16 @@ const longueurFleche = 0.001;
 const angleFleche = 145;
 const lineWidthFleche = 3;
 
-const listeChoosenFleches = [
+const listeChoosenFlechesVtt = [
   { id: listeCircuitsVtt[0].id, points: [90, 427, 830, 915, 1100, 1435, 2295, 2760, 3090, 3856, 4050] },
   { id: listeCircuitsVtt[1].id, points: [73, 450, 728, 1661, 2200, 2515, 3280] },
   { id: listeCircuitsVtt[2].id, points: [14, 48, 87, 515, 825, 1330, 1628, 2196] },
   { id: listeCircuitsVtt[3].id, points: [59, 400, 750, 900, 1045, 1698] },
   { id: listeCircuitsVtt[4].id, points: [9, 49, 151, 458, 785] },
+]
+
+const listeChoosenFlechesMarche = [
+  { id: listeCircuitsMarche[0].id, points: [25] },
+  { id: listeCircuitsMarche[1].id, points: [25] },
+  { id: listeCircuitsMarche[2].id, points: [25] }
 ]
