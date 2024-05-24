@@ -1,5 +1,5 @@
-// let type = 'all'; // all = on veut voir toutes les traces en entier, utile pour prendre un screen
-let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
+let type = 'all'; // all = on veut voir toutes les traces en entier, utile pour prendre un screen
+// let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
 let mapStyle;
