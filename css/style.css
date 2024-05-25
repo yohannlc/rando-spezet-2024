@@ -126,7 +126,7 @@ span {
     .legend {
         font-size: 15px;
         height: auto;
-        max-width: 50vw;
+        flex-direction: row;
     }
     .legend h4 {
         margin: 0 0 5px;
