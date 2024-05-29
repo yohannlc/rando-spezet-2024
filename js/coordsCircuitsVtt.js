@@ -1,5 +1,5 @@
-// Coordonnees du circuit VTT 19
-let coordsCircuitVtt19 = [
+// Coordonnees du circuit VTT 20
+let coordsCircuitVtt20 = [
   [-3.7147912569344044, 48.19041294045746],
   [-3.714791340753436, 48.19041310809553],
   [-3.714730739593506, 48.190434062853456],

@@ -20,13 +20,14 @@ function createMap(myMapStyle) {
 
   // Ajout des traces (circuits et portions)
   map.on('load', () => {
-    addCircuitsVTT();
-    // addDebalisage();
     if (type == "all") {
       addCircuitsMarche();
       // addPolygonsMarche();
     }
+    addCircuitsVTT();
+    // addDebalisage();
     addPoints();
+    addFleches();
     // if (typePo == "vttAvecPo") {addPortions();}
   });
 

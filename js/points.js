@@ -33,4 +33,6 @@ function addPoints() {
   addPoint("ravitoTrevillyHuella", "ravito", ravitoTrevilyHuella, colorRavito);
   addPoint("ravitoVirageStGoazec", "ravito", ravitoVirageStGoazec, colorRavito);
   addPoint("ravitoCudel", "ravito", ravitoCudel, colorRavito);
+  addPoint('ravitoValentin', 'ravito', ravitoValentin, colorRavito);
+  addPoint('ravitoMarion', 'ravito', ravitoMarion, colorRavito);
 }

@@ -216,10 +216,10 @@ function addFlecheForACircuit(circuitName) {
 
 // Fonction pour ajouter les flèches
 function addFleches() {
-    let listeFlechesCircuitsVtt = [] // [[x, y, angle], ...]
-
-    // listeFlechesCircuitsVtt = getFlechesByEuclidienneDistance(listeCircuitsVtt, distanceBetweenFleches);
-    listeFlechesCircuitsVtt = getFlechesChoosingCoords(listeCircuitsVtt, listeChoosenFleches);
-    listeFlechesCircuitsVtt = calculateFlecheCoords(listeFlechesCircuitsVtt);
-    drawFlechesVtt(listeFlechesCircuitsVtt);
+    for (let i = 0; i < listeCircuitsVtt.length; i++) {
+        addFlecheForACircuit(listeCircuitsVtt[i].id);
+    }
+    for (let i = 0; i < listeCircuitsMarche.length; i++) {
+        addFlecheForACircuit(listeCircuitsMarche[i].id);
+    }
 }

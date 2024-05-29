@@ -28,8 +28,8 @@ legendItemsVTT.forEach(function(item, index) {
   item.addEventListener('click', function() {    
     switch(index) {
       case 0:
-        tabStatesCircuits.stateCircuit19[0] = !tabStatesCircuits.stateCircuit19[0];
-        setOnlyOneTrace('circuit19', tabStatesCircuits.stateCircuit19[0], item);
+        tabStatesCircuits.stateCircuit20[0] = !tabStatesCircuits.stateCircuit20[0];
+        setOnlyOneTrace('circuit20', tabStatesCircuits.stateCircuit20[0], item);
         break;
       case 1:
         tabStatesCircuits.stateCircuit28[0] = !tabStatesCircuits.stateCircuit28[0];

@@ -24,13 +24,13 @@ const listeCircuitsVtt = [
   { id: "circuit41", coords: coordsCircuitVtt41, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
   { id: "circuit36", coords: coordsCircuitVtt36, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
   { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(49, 215, 107)'},
-  { id: "circuit19", coords: coordsCircuitVtt19, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
+  { id: "circuit20", coords: coordsCircuitVtt20, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
 ];
 
 const listeCircuitsMarche = [
-  { id: "circuit17", coords: coordsCircuitMarche17, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(58, 218, 85)'},
+  { id: "circuit17", coords: coordsCircuitMarche17, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(98, 117, 230)'},
   { id: "circuit13", coords: coordsCircuitMarche13, colorOut: 'rgb(129, 97, 154)', colorSat: 'rgb(255, 0, 120)'},
-  { id: "circuit8", coords: coordsCircuitMarche8, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(252, 143, 128)'}
+  { id: "circuit8", coords: coordsCircuitMarche8, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(235, 181, 150)'}
 ];
 
 let tabStatesCircuits = {
@@ -38,7 +38,7 @@ let tabStatesCircuits = {
   stateCircuit41: [false, listeCircuitsVtt[1].id],
   stateCircuit36: [false, listeCircuitsVtt[2].id],
   stateCircuit28: [false, listeCircuitsVtt[3].id],
-  stateCircuit19: [false, listeCircuitsVtt[4].id],
+  stateCircuit20: [false, listeCircuitsVtt[4].id],
 
   stateCircuit17: [false, listeCircuitsMarche[0].id],
   stateCircuit13: [false, listeCircuitsMarche[1].id],
@@ -107,18 +107,18 @@ for (let i = 0; i < listeCircuitsVtt.length; i++) {
   }
 }
 
-for (let i = 0; i < coordsCircuitMarche17.length; i++) {
-  listeCircuitsMarche[0].coords[i][0] += offset*1.5;
-  listeCircuitsMarche[0].coords[i][1] += offset*1.5;
-}
-for (let i = 0; i < coordsCircuitMarche13.length; i++) {
-  listeCircuitsMarche[1].coords[i][0] += offset*2;
-  listeCircuitsMarche[1].coords[i][1] += offset*2;
-}
-for (let i = 0; i < coordsCircuitMarche8.length; i++) {
-  listeCircuitsMarche[2].coords[i][0] += offset*2.5;
-  listeCircuitsMarche[2].coords[i][1] += offset*2.5;
-}
+// for (let i = 0; i < coordsCircuitMarche17.length; i++) {
+//   listeCircuitsMarche[0].coords[i][0] += offset*1.5;
+//   listeCircuitsMarche[0].coords[i][1] += offset*1.5;
+// }
+// for (let i = 0; i < coordsCircuitMarche13.length; i++) {
+//   listeCircuitsMarche[1].coords[i][0] += offset*2;
+//   listeCircuitsMarche[1].coords[i][1] += offset*2;
+// }
+// for (let i = 0; i < coordsCircuitMarche8.length; i++) {
+//   listeCircuitsMarche[2].coords[i][0] += offset*2.5;
+//   listeCircuitsMarche[2].coords[i][1] += offset*2.5;
+// }
 
 
 /* --------------------------------- Portions --------------------------------- */
@@ -209,15 +209,15 @@ const angleFleche = 145;
 const lineWidthFleche = 3;
 
 const listeChoosenFlechesVtt = [
-  { id: listeCircuitsVtt[0].id, points: [90, 427, 830, 915, 1100, 1435, 2295, 2760, 3090, 3856, 4050] },
+  { id: listeCircuitsVtt[0].id, points: [90, 427, 830, 915, 1100, 1435, 2295, 2760, 3090, 4000] },
   { id: listeCircuitsVtt[1].id, points: [73, 450, 728, 1661, 2200, 2515, 3280] },
-  { id: listeCircuitsVtt[2].id, points: [14, 48, 87, 515, 825, 1330, 1628, 2196] },
-  { id: listeCircuitsVtt[3].id, points: [59, 400, 750, 900, 1045, 1698] },
-  { id: listeCircuitsVtt[4].id, points: [9, 49, 151, 458, 785] },
+  { id: listeCircuitsVtt[2].id, points: [15, 48, 87, 515, 825, 1330, 1628, 2196] },
+  { id: listeCircuitsVtt[3].id, points: [59, 400, 750, 900, 1698] },
+  { id: listeCircuitsVtt[4].id, points: [12, 49, 151, 458, 785] },
 ]
 
 const listeChoosenFlechesMarche = [
-  { id: listeCircuitsMarche[0].id, points: [25] },
-  { id: listeCircuitsMarche[1].id, points: [25] },
-  { id: listeCircuitsMarche[2].id, points: [25] }
+  { id: listeCircuitsMarche[0].id, points: [25, 141, 251, 332] },
+  { id: listeCircuitsMarche[1].id, points: [25, 67, 162, 230, 312] },
+  { id: listeCircuitsMarche[2].id, points: [25, 138, 175] }
 ]

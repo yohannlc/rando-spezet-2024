@@ -25,7 +25,7 @@ def gpx_to_js(gpx_file, js_file, circuit):
     print(f"Les coordonnées du circuit {circuit} ont été ajoutées au fichier JavaScript.")
 
 if __name__ == "__main__":
-    circuits = ["19", "28", "36", "41", "48"]
+    circuits = ["20", "28", "36", "41", "48"]
     output_js_file = "./js/coordsCircuitsVtt.js"
 
     # Vider le fichier JavaScript s'il existe déjà

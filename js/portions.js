@@ -30,8 +30,8 @@ function drawPortion(portionName, portionType, portionCoordinates, portionLineWi
     if(portionType === "circuit") {
       circuitHoverEnter(portionName);
       circuitHoverLeave(portionName);
-      // draw fleches
-      addFlecheForACircuit(portionName);
+      // draw fleches en même temps que les circuits
+      // addFlecheForACircuit(portionName);
     } else if(portionType === "fleche") {
       // Nothing
     } else {
