@@ -2,7 +2,7 @@ let type = 'all'; // all = on veut voir toutes les traces en entier, utile pour 
 // let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
-let mapStyle;
+let checkboxMapStyle = document.getElementById("mapStyleCliq").checked;
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
 let smartphone = false; //par défaut, on considère que c'est un pc
@@ -59,7 +59,7 @@ const lineWidthsCircuitByZoom = {
 }
 
 const offsetsCircuits = {
-  All_Out: 0.00015,
+  All_Out: 0.0001,
   All_Sat: 0.0002,
   NotAll_Out: 0.000047,
   NotAll_Sat: 0.0002 // NotAll_Sat: 0.0002 pour screen sinon 0.00005
@@ -69,22 +69,12 @@ let lineOpacityCircuit = 1;
 let lineOpacityBackCircuit = 0.15;
 let offsetLineWithCircuit = 1.2;
 
-if (type == 'all') {
-  if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-    lineWidthCircuit = lineWidthsCircuit.All_Out;
-    offset = offsetsCircuits.All_Out;
-  } else {
-    lineWidthCircuit = lineWidthsCircuit.All_Sat;
-    offset = offsetsCircuits.All_Sat;
-  }
+if (checkboxMapStyle) {
+  lineWidthCircuit = type == 'all' ? lineWidthsCircuit.All_Sat : lineWidthsCircuit.NotAll_Sat;
+  offset = type == 'all' ? offsetsCircuits.All_Sat : offsetsCircuits.NotAll_Sat;
 } else {
-  if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-    lineWidthCircuit = lineWidthsCircuit.NotAll_Out;
-    offset = offsetsCircuits.NotAll_Out;
-  } else {
-    lineWidthCircuit = lineWidthsCircuit.NotAll_Sat;
-    offset = offsetsCircuits.NotAll_Sat;
-  }
+  lineWidthCircuit = type == 'all' ? lineWidthsCircuit.All_Out : lineWidthsCircuit.NotAll_Out;
+  offset = type == 'all' ? offsetsCircuits.All_Out : offsetsCircuits.NotAll_Out;
 }
 
 // Décalage des traces
@@ -142,12 +132,12 @@ const colorsPortions = {
 lineOpacityPortions_Out = 0.6;
 lineOpacityPortions_Sat = 0.8;
 
-if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-  colorTronco = colorsPortions.Tronco_Out;
-  lineOpacityPortions = lineOpacityPortions_Out;
-} else { // mapbox://styles/mapbox/satellite-streets-v12
+if (checkboxMapStyle) {
   colorTronco = colorsPortions.Tronco_Sat;
   lineOpacityPortions = lineOpacityPortions_Sat;
+} else {
+  colorTronco = colorsPortions.Tronco_Out;
+  lineOpacityPortions = lineOpacityPortions_Out;
 }
 
 const descriptions = {
@@ -193,12 +183,12 @@ const colorsRavito = {
   sat: "rgb(247, 34, 34)"
 }
 
-if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {
-  colorRavito = colorsRavito.out;
-  circleRadius = circlesRadius.out;
-} else {
+if (checkboxMapStyle) {
   colorRavito = colorsRavito.sat;
   circleRadius = circlesRadius.sat;
+} else {
+  colorRavito = colorsRavito.out;
+  circleRadius = circlesRadius.out;
 }
 
 /* --------------------------------- Flèches --------------------------------- */
