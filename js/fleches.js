@@ -214,11 +214,26 @@ function addFlecheForACircuit(circuitName) {
     drawFlechesMarche(listeFlechesCircuitMarche);
 }
 
+function removeFlecheCircuitsMarche() {
+    for (let i = 0; i < listeCircuitsMarche.length; i++) {
+        for (let j = 0; j < listeChoosenFlechesMarche[i].points.length; j++) {
+            map.removeLayer(listeCircuitsMarche[i].id + "_fleche" + j);
+            map.removeSource(listeCircuitsMarche[i].id + "_fleche" + j);
+        }
+    }
+}
+
 // Fonction pour ajouter les flèches
 function addFleches() {
     for (let i = 0; i < listeCircuitsVtt.length; i++) {
         addFlecheForACircuit(listeCircuitsVtt[i].id);
     }
+    for (let i = 0; i < listeCircuitsMarche.length; i++) {
+        addFlecheForACircuit(listeCircuitsMarche[i].id);
+    }
+}
+
+function addFlecheCircuitsMarche() {
     for (let i = 0; i < listeCircuitsMarche.length; i++) {
         addFlecheForACircuit(listeCircuitsMarche[i].id);
     }

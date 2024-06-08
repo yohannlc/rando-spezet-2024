@@ -17,7 +17,6 @@
     <script src="js\points.js"></script>
     <script src="js\polygons.js"></script>
     <script src="js\change.js"></script>
-    <script src="js\onClick.js"></script>
     <script src="js\hover.js"></script>
     <script src="js\fleches.js"></script>
 
@@ -34,15 +33,14 @@
         <div id='map'></div>
         <div class="">
             <div id="divLegendId" class="legend">
-                <h4>Circuits</h4>
                 <div class="flex">
                     <div id="legendCircuitsVTT">
                         <p class="bold">VTT</p>
-                        <div class="legend-circuit clickable"><span></span>20km &#8599;320m</div>
-                        <div class="legend-circuit clickable"><span></span>28km &#8599;520m</div>
-                        <div class="legend-circuit clickable"><span></span>36km &#8599;750m</div>
-                        <div class="legend-circuit clickable"><span></span>41km &#8599;940m</div>
-                        <div class="legend-circuit clickable"><span></span>48km &#8599;1100m</div>
+                        <div class="legend-circuit clickable"><span></span>20km</div>
+                        <div class="legend-circuit clickable"><span></span>28km</div>
+                        <div class="legend-circuit clickable"><span></span>36km</div>
+                        <div class="legend-circuit clickable"><span></span>41km</div>
+                        <div class="legend-circuit clickable"><span></span>48km</div>
                     </div>
                     <div id="legendCircuitsMarche">
                         <p class="bold">Marche</p>
@@ -63,13 +61,13 @@
             </div>
 
             <div id="divParamsId" class="div-params">
-                <!-- <div id="typeAllCliqDiv" class="flex-column">
+                <div id="typeAllCliqDiv" class="flex-column">
                     <span class="label-cliq" value="">Circuits marches</span>
                     <label class="switch">
-                        <input type="checkbox" id="typeAllCliq" onclick="changeTypeAll(this)">
+                        <input type="checkbox" id="typeAllCliq" onclick="changeTypeAll(this)" checked>
                         <span class="slider"></span>
                     </label>
-                </div> -->
+                </div>
 
                 <!-- <div id="typeCliqDiv" class="flex-column">
                     <span class="label-cliq" value="">Afficher les portions</span>

@@ -34,6 +34,7 @@ function drawPortion(portionName, portionType, portionCoordinates, portionLineWi
       // addFlecheForACircuit(portionName);
     } else if(portionType === "fleche") {
       // Nothing
+      return;
     } else {
       portionsHoverEnter(portionName);
       portionsHoverLeave(portionName);
