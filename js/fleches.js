@@ -224,12 +224,9 @@ function removeFlecheCircuitsMarche() {
 }
 
 // Fonction pour ajouter les flèches
-function addFleches() {
+function addFlechesCircuitsVTT() {
     for (let i = 0; i < listeCircuitsVtt.length; i++) {
         addFlecheForACircuit(listeCircuitsVtt[i].id);
-    }
-    for (let i = 0; i < listeCircuitsMarche.length; i++) {
-        addFlecheForACircuit(listeCircuitsMarche[i].id);
     }
 }
 

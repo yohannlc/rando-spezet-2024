@@ -25,12 +25,12 @@ function createMap(myMapStyle) {
   map.on('load', () => {
     if (type == "all") {
       addCircuitsMarche();
-      // addPolygonsMarche();
+      addFlechesCircuitsMarche();
+      addRavitosMarche();
     }
     addCircuitsVTT();
-    // addDebalisage();
-    addPoints();
-    addFleches();
+    addRavitosVTT();
+    addFlechesCircuitsVTT();
     // if (typePo == "vttAvecPo") {addPortions();}
   });
 

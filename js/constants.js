@@ -1,6 +1,12 @@
-let type = 'all'; // all = on veut voir toutes les traces en entier, utile pour prendre un screen
-// let type = 'notAll'; // notAll = plus pour le mode logiciel, ou on peut zoomer donc pas besoin de gros offset
 let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
+
+let checkboxTypeAll = document.getElementById("typeAllCliq").checked;
+let type;
+if (checkboxTypeAll) {
+  type = 'all';
+} else {
+  type = 'vttSansPo';
+}
 
 let checkboxMapStyle = document.getElementById("mapStyleCliq").checked;
 

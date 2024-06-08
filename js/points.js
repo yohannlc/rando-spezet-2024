@@ -29,18 +29,16 @@ function addPoint(pointName, pointType, pointCoordinates, pointColor) {
   }
 }
 
-function addPoints() {
+function addRavitosVTT() {
   addPoint("ravitoTrevillyHuella", "ravito", ravitoTrevilyHuella, colorRavito);
   addPoint("ravitoVirageStGoazec", "ravito", ravitoVirageStGoazec, colorRavito);
   addPoint("ravitoCudel", "ravito", ravitoCudel, colorRavito);
-  addRavitosMarche();
 }
 
 function addRavitosMarche() {
   addPoint('ravitoValentin', 'ravito', ravitoValentin, colorRavito);
   addPoint('ravitoMarion', 'ravito', ravitoMarion, colorRavito);
 }
-
 
 function removeRavitosMarche() {
   map.removeLayer('ravitoValentin');
