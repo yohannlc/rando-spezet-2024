@@ -194,7 +194,7 @@ function changeTypeAll(checkboxTypeAll) {
     if (checkboxTypeAll.checked) {
         type = 'all';
         addCircuitsMarche();
-        addFlecheCircuitsMarche();
+        addFlechesCircuitsMarche();
         addRavitosMarche();
     } else {
         type = 'notAll';
