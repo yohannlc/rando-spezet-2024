@@ -230,7 +230,7 @@ function addFlechesCircuitsVTT() {
     }
 }
 
-function addFlecheCircuitsMarche() {
+function addFlechesCircuitsMarche() {
     for (let i = 0; i < listeCircuitsMarche.length; i++) {
         addFlecheForACircuit(listeCircuitsMarche[i].id);
     }
