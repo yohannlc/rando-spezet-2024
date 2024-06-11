@@ -1,7 +1,12 @@
-let ravitoCudel = [
+let ravitoCudel1 = [
     -3.682563279808221,
     48.16108236457566
-  ];
+];
+
+let ravitoCudel2 = [
+    -3.6818452226502245,
+    48.16224660188908
+];
 
 let ravitoBallTrap = [
     -3.76203019252074,
