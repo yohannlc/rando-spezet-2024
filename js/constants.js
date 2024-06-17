@@ -65,8 +65,8 @@ const lineWidthsCircuitByZoom = {
 }
 
 const offsetsCircuits = {
-  All_Out: 0.00008,
-  All_Sat: 0.00008,
+  All_Out: 0.00006,
+  All_Sat: 0.00006,
   NotAll_Out: 0.00005,
   NotAll_Sat: 0.00005 // NotAll_Sat: 0.0002 pour screen sinon 0.00005
 };
@@ -205,11 +205,11 @@ const angleFleche = 145;
 const lineWidthFleche = 3;
 
 const listeChoosenFlechesVtt = [
-  { id: listeCircuitsVtt[0].id, points: [90, 427, 835, 943, 1070, 1800, 2300, 2607, 4000] },
-  { id: listeCircuitsVtt[1].id, points: [50, 124, 1025, 1450, 1795, 3280] },
-  { id: listeCircuitsVtt[2].id, points: [15, 47, 172, 800, 1330, 1465, 2000] },
-  { id: listeCircuitsVtt[3].id, points: [59, 400, 750, 995, 1195, 1698] },
-  { id: listeCircuitsVtt[4].id, points: [12, 49, 151, 302, 715] },
+  { id: listeCircuitsVtt[0].id, points: [90, 427, 835, 941, 1073, 1800, 2300, 2627, 3433] },
+  { id: listeCircuitsVtt[1].id, points: [50, 124, 216, 1045, 1500, 1835, 2619] },
+  { id: listeCircuitsVtt[2].id, points: [13, 52, 205, 800, 1437, 1830] },
+  { id: listeCircuitsVtt[3].id, points: [59, 200, 400, 1095, 1422] },
+  { id: listeCircuitsVtt[4].id, points: [12, 61, 151, 578] },
 ]
 
 const listeChoosenFlechesMarche = [
