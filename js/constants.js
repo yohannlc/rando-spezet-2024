@@ -207,7 +207,7 @@ const lineWidthFleche = 3;
 const listeChoosenFlechesVtt = [
   { id: listeCircuitsVtt[0].id, points: [90, 427, 835, 941, 1073, 1800, 2300, 2627, 3433] },
   { id: listeCircuitsVtt[1].id, points: [50, 124, 216, 1045, 1500, 1835, 2619] },
-  { id: listeCircuitsVtt[2].id, points: [13, 52, 205, 800, 1437, 1830] },
+  { id: listeCircuitsVtt[2].id, points: [13, 52, 205, 800, 1437, 1865] },
   { id: listeCircuitsVtt[3].id, points: [59, 200, 400, 1095, 1422] },
   { id: listeCircuitsVtt[4].id, points: [12, 61, 151, 578] },
 ]
