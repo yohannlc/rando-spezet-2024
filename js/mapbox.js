@@ -8,7 +8,7 @@ function createMap(myMapStyle) {
     container: 'map',
     style: myMapStyle,
     center: [-3.7151733269314533,48.177434347124205],
-    zoom: zoomStart
+    zoom: zoomStart,
   });
 
   // Ajouter les contrôles à la carte
@@ -44,20 +44,25 @@ function changeMapStyle() {
   let checkboxMapStyle = document.getElementById("mapStyleCliq").checked;
   //Si la checkbox est cochée mapStyleCliq, on change la carte pour satellite, sinon on change pour classique
   if (checkboxMapStyle == true) {
-    mapStyle = "mapbox://styles/mapbox/satellite-streets-v12";
+    mapStyleUrl = "mapbox://styles/yohannlc/cm8hha9d9002301s89a41db9x";
+    mapStyle = "satellite"
   } else {
-    mapStyle = "mapbox://styles/mapbox/outdoors-v12";
+    mapStyleUrl = "mapbox://styles/yohannlc/cm8hbqqxj003t01s57dlx3iya";
+    mapStyle = "outdoor"
   }
   if (map != undefined) {
     map.remove();
   }
-  map = createMap(mapStyle);
+  map = createMap(mapStyleUrl);
   changeLegend();
   changeConstants();
+
+
 
   // Attente de changement de la valeur currentZoom = map.getZoom();
   map.on('zoomend', function() {
     var currentZoom = map.getZoom();
+    console.log(currentZoom);
     changeSelonZoom(currentZoom);
   });
 
